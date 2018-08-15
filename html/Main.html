@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>Welcome</title>
+    <style>
+        
+        .mainbg{
+            background: url("C:/Users/lamir/Desktop/이미지/다운/dev.jpg") no-repeat;
+            background-size: cover;
+            background-position: top;
+            background-origin: content-box;
+        }
+
+        /*Text setting--------------------------------------------------------------------------------------------------------*/
+
+        .Firsttxt{
+            text-align: center;
+            font-family: "배달의민족 도현";
+            font-size: 6em;
+            line-height: 1em;
+            position: relative;
+            bottom: -2em;
+        }
+
+        .Secontxt{
+            text-align: center;
+            font-family: "배달의민족 도현";
+            font-size: 3em;
+            line-height: 0;
+        }
+
+        .Socialtxt{
+            text-align: center;
+            font-family: "배달의민족 도현";
+            font-size: 2em;
+            
+        }
+
+        /*gradient color--------------------------------------------------------------------------------------------------------*/
+
+        .gradtext {
+            background: #55ffaa;
+            background:    -moz-linear-gradient(right, #ffdc18, #ff5e19);
+            background:      -o-linear-gradient(right, #ffdc18, #ff5e19);
+            background:         linear-gradient(to right, #ffdc18, #ff5e19);
+            -webkit-background-clip: text;
+            color: white;
+
+            background: #55ffaa;
+            background: -webkit-linear-gradient(left, #ff5e19, #ffdc18);
+            background:    -moz-linear-gradient(right, #ff5e19, #ffdc18);
+            background:      -o-linear-gradient(right, #ff5e19, #ffdc18);
+            background:         linear-gradient(to right, #ff5e19, #ffdc18);
+            -webkit-background-clip: text;
+                    background-clip: text;
+            color: transparent;
+            font-weight: bold;
+        }
+
+        /*Menubar--------------------------------------------------------------------------------------------------------*/
+        
+        #topMenu { 
+            height: 30px; 
+            width: 850px;
+        } 
+
+        #topMenu ul {  
+            list-style-type: none; 
+            margin: 0px; 
+            padding: 0px; 
+        } 
+
+        #topMenu ul li { 
+            color: white; 
+            background-color: #2d2d2d; 
+            float: left; 
+            line-height: 36px; 
+            vertical-align: middle; 
+            text-align: center; 
+            position: relative; 
+        } 
+
+        .menuLink, .submenuLink { 
+            text-decoration:none; 
+            display: block; 
+            width: 150px;
+            font-size: 12px;  
+            font-family: "배달의민족 도현", Dotum; 
+        } 
+
+        .menuLink {  
+            color: white; 
+        }
+
+        .topMenuLi:hover .menuLink { 
+            color:orange; 
+            background-color: #4e4e4e; 
+        } 
+
+        .longLink { 
+            width: 190px; 
+        }
+
+        .submenuLink {
+            color: white; 
+            background-color: rgb(126, 126, 126); 
+            border: solid 1px rgb(126, 126, 126);
+            margin-right: -1px; 
+        } 
+
+        .submenu { 
+            position: absolute; 
+            height: 0px; 
+            overflow-x: visible;
+            overflow-y: hidden;
+            transition: height .2s; 
+            -webkit-transition: height .2s; 
+            -moz-transition: height .2s; 
+            -o-transition: height .2s; 
+            width: 574px; 
+        }
+        
+        .submenu li { 
+            display: inline-block; 
+        } 
+
+        .topMenuLi:hover .submenu { 
+            height: 256px; 
+        } 
+        
+        .submenuLink:hover { 
+            color: orange; 
+            background-color: #dddddd; 
+        }
+
+        /*Box--------------------------------------------------------------------------------------------------------*/
+
+    </style>
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body class="mainbg">
+
+        <nav id="topMenu" > 
+            <ul> 
+                <li class="topMenuLi"> 
+                    <a class="menuLink" href="3">About us</a> 
+                    <ul class="submenu">
+                        <li><a href="" class="submenuLink longLink">팀원</a></li>
+                        <li><a href="" class="submenuLink longLink">분야</a></li> 
+                        <li><a href="" class="submenuLink longLink">연락처</a></li> 
+                    </ul> 
+                </li> 
+                        <li>|</li> 
+                <li class="topMenuLi">
+                    <a class="menuLink" href="">Products</a> 
+                    <ul class="submenu"> 
+                        <li><a href="" class="submenuLink">IPscanner™</a></li> 
+                        <li><a href="" class="submenuLink">TheRich™</a></li> 
+                        <li><a href="" class="submenuLink">ModuleWorkshop™</a></li>
+                    </ul> 
+                </li>
+                        <li>|</li> 
+                <li class="topMenuLi"> 
+                    <a class="menuLink" href="">Projects</a> 
+                    <ul class="submenu"> 
+                        <li><a href="" class="submenuLink">C</a></li> 
+                        <li><a href="" class="submenuLink">C++</a></li> 
+                        <li><a href="" class="submenuLink">C#</a></li>
+                        <li><a href="" class="submenuLink">JAVA</a></li>
+                        <li><a href="" class="submenuLink">Python</a></li>
+                        <li><a href="" class="submenuLink">Nodejs</a></li>
+                    </ul> 
+                </li> 
+                        <li>|</li> 
+                <li class="topMenuLi"> 
+                    <a class="menuLink" href="">MEDIA LOG</a>   
+                </li>
+                            <li>|</li> 
+                <li class="topMenuLi">
+                    <a class="menuLink" href="">LOCATION LOG</a> 
+                </li> 
+            </ul> 
+        </nav>  
+    
+    <h1 class="Firsttxt"><span class="gradtext">나는</span><br><span class="gradtext">개발자다™</span></h1>
+    <div id="white"><h2 class="Secontxt"></h2></div>
+
+    <div class="box1"></div>
+
+</body>
+</html>
