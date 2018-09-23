@@ -11,19 +11,84 @@
     text-align: center;
     font-family: "배달의민족 도현";
     font-size: 6em;
-    line-height: 1em;
     position: relative;
-    bottom: -2em;
 }
 
 #time {
-    margin-left: 360px;
+    color: white;
     font-size: 90px;
     font-family: "배달의민족 도현";
+    width: 870px;
+    padding-top: 8px;
 }
 
 #calendar {
-    margin-left: 427px;
+    color: white;
     font-size: 90px;
     font-family: "배달의민족 도현";
+    width: 760px;
+    padding-top: 8px;
+}
+
+body {
+    background-color: darkgrey; 
+}
+
+div {
+    background-color: cadetblue;
+    text-align: center; 
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    border-radius: 20px;
+    border-bottom: 5px solid rgb(54, 107, 109);
+    border-right: 5px solid rgb(54, 107, 109);
+}
+
+#setting { /*아이콘*/
+    width: 80px;
+    margin-left: 1420px;
+    margin-top: 130px;
+}
+
+#settingText {
+    font-family: "배달의민족 도현";
+    margin-left: 1320px;
+    position: relative;
+    top: 180px;
+    left: 10px;
+}
+
+#setting:hover{
+    animation-name: Jump;
+    animation-duration: 1s;
+}
+
+#facebook {
+    width: 80px;
+    margin-left: 1420px;
+    margin-top: 20px;
+}
+
+#facebookText {
+    font-family: "배달의민족 도현";
+    margin-left: 1320px;
+    position: relative;
+    bottom: 55px;
+    right: 65px;
+}
+
+#facebook:hover{
+    animation-name: Jump;
+    animation-duration: 1s; 
+}
+
+.icontext {
+
+}
+
+@keyframes Jump{
+    0% {transform: translateX(0);}
+    50% {transform: translateX(-20px);}
+    100% {transform: translateX(0);}
 }

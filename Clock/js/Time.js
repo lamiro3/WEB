@@ -33,3 +33,17 @@ function AddBlank (num, digit){
     }
     return blank + num;
 }
+
+function CreatePopup(){
+    window.open("D:/DEV-WEB/WEB-OS/Clock/html/Setting.html", "Setting", "width = 400, height = 300, left = 100, top= 50");
+}
+
+function CreateFacebook(){
+    window.open("https://www.facebook.com/Studi0-Lamir0-204322660176214/");
+}
+
+var settingtext = document.getElementById('settingText');
+var facebooktext = document.getElementById('facebookText');
+var facebook = document.getElementById('facebook');
+var setting = document.getElementById('setting');
+
