@@ -18,8 +18,9 @@
     color: white;
     font-size: 90px;
     font-family: "배달의민족 도현";
-    width: 870px;
+    width: 920px;
     padding-top: 8px;
+    margin-top: -8px;
 }
 
 #calendar {
@@ -47,15 +48,16 @@ div {
 
 #setting { /*아이콘*/
     width: 80px;
-    margin-left: 1420px;
-    margin-top: 130px;
+    position: fixed;
+    left: 1426px;
+    bottom: 160px;
 }
 
 #settingText {
     font-family: "배달의민족 도현";
     margin-left: 1320px;
     position: relative;
-    top: 180px;
+    top: 150px;
     left: 10px;
 }
 
@@ -66,15 +68,16 @@ div {
 
 #facebook {
     width: 80px;
-    margin-left: 1420px;
-    margin-top: 20px;
+    position: fixed;
+    left: 1426px;
+    bottom: 60px;
 }
 
 #facebookText {
     font-family: "배달의민족 도현";
     margin-left: 1320px;
     position: relative;
-    bottom: 55px;
+    top: 220px;
     right: 65px;
 }
 
