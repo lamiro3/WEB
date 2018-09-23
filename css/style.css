@@ -1,0 +1,64 @@
+.mainbg{
+    background: url("C:/Users/lamir/Desktop/이미지/다운/dev.jpg") no-repeat;
+    background-size: cover;
+    background-position: top;
+    background-origin: content-box;
+}
+
+/*Text setting--------------------------------------------------------------------------------------------------------*/
+
+.Firsttxt{
+    text-align: center;
+    font-family: "배달의민족 도현";
+    font-size: 6em;
+    line-height: 1em;
+    position: relative;
+    bottom: -2em;
+}
+
+.Secontxt{
+    text-align: center;
+    font-family: "배달의민족 도현";
+    font-size: 3em;
+    line-height: 0;
+}
+
+.Socialtxt{
+    text-align: center;
+    font-family: "배달의민족 도현";
+    font-size: 2em;
+    
+}
+
+/*gradient color--------------------------------------------------------------------------------------------------------*/
+
+.gradtext {
+    background: #55ffaa;
+    background:    -moz-linear-gradient(right, #ffdc18, #ff5e19);
+    background:      -o-linear-gradient(right, #ffdc18, #ff5e19);
+    background:         linear-gradient(to right, #ffdc18, #ff5e19);
+    -webkit-background-clip: text;
+    color: white;
+
+    background: #55ffaa;
+    background: -webkit-linear-gradient(left, #ff5e19, #ffdc18);
+    background:    -moz-linear-gradient(right, #ff5e19, #ffdc18);
+    background:      -o-linear-gradient(right, #ff5e19, #ffdc18);
+    background:         linear-gradient(to right, #ff5e19, #ffdc18);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+    font-weight: bold;
+}
+
+#time {
+    margin-left: 360px;
+    font-size: 90px;
+    font-family: "배달의민족 도현";
+}
+
+#calendar {
+    margin-left: 427px;
+    font-size: 90px;
+    font-family: "배달의민족 도현";
+}
