@@ -161,6 +161,7 @@ body {
     -ms-transform:scale(1.2);   
     -o-transform:scale(1.2);
     transform:scale(1.2);
+    box-shadow: 30px 30px 30px 30px rgba(0, 0, 0, 0.2);
 }
 
 #article2:hover {
@@ -169,6 +170,7 @@ body {
     -ms-transform:scale(1.2);   
     -o-transform:scale(1.2);
     transform:scale(1.2);
+    box-shadow: 30px 30px 30px 30px rgba(0, 0, 0, 0.2);
 }
 
 #article3:hover {
@@ -177,6 +179,7 @@ body {
     -ms-transform:scale(1.2);   
     -o-transform:scale(1.2);
     transform:scale(1.2);
+    box-shadow: 30px 30px 30px 30px rgba(0, 0, 0, 0.2);
 }
 
 #options li {
