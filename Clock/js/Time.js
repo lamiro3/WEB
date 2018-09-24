@@ -1,23 +1,25 @@
 function printTime(){
 
     var time = new Date();
+    var month;
     var timer = document.getElementById('time');
     var AllCalendar = document.getElementById('calendar');
-    var calendar = time.getFullYear() + "년 " + (time.getMonth() + 1) + "월 " + time.getDate() + "일 ";
-    var DivideDay = '오전';
+    var DivideDay = 'AM';
     var CurHours = AddBlank(time.getHours(), 2) ;
     var CurMinutes = AddBlank(time.getMinutes(), 2); 
     var CurSeconds = AddBlank(time.getSeconds(), 2);
 
     if(CurHours > 12){
-        DivideDay = '오후';
+        DivideDay = 'PM';
     }
     
     if(CurSeconds >= 55){
         CurSeconds = '<span style="color:#ff0000;">'+ CurSeconds + '</span>';
     }
 
-    timer.innerHTML = " <span style='font-size:90px;'>" + DivideDay + "</span>" + " " + CurHours + "시 " + CurMinutes + "분 " + CurSeconds +  "초 ";
+    var calendar = time.getFullYear() + "." + (time.getMonth()+1) + "." + time.getDate();
+
+    timer.innerHTML = " <span style='font-size:90px;'>" + DivideDay + "</span>" + " " + CurHours + ':' + CurMinutes;
     AllCalendar.innerHTML = calendar;
 
     setTimeout("printTime()",1000);
@@ -35,11 +37,19 @@ function AddBlank (num, digit){
 }
 
 function CreatePopup(){
-    window.open("D:/DEV-WEB/WEB-OS/Clock/html/Setting.html", "Setting", "width = 400, height = 300, left = 100, top= 50");
+    window.open("D:/DEV-WEB/WEB-OS/Clock/html/Setting.html", "Setting", "width = 800, height = 600, left = 100, top= 50");
 }
 
 function CreateFacebook(){
     window.open("https://www.facebook.com/Studi0-Lamir0-204322660176214/");
+}
+
+function flick(){ // : 깜빡임 기능 함수 ... 현재는 일단 보류 ㅠㅠ
+    if(time.getSeconds() % 0)
+        return ':';
+    
+    else if(time.getSeconds() % 1)
+        return ' ';
 }
 
 var settingtext = document.getElementById('settingText');
