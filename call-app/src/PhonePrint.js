@@ -30,21 +30,18 @@ class PhoneInfo extends Component {
     }
 
     render() {
-        const setInfo = (data) => {
-            data.sort();
-            data = data.filter();
+        const mapToComponents = (data) => {
+            return data.map((info, i) => {
+                return ()
+            });
         }
-
         return(
             <div>
                 <h1>Your Friends</h1>
                 <input 
                 type="text" 
                 placeholder="Search"
-                value={this.state.storage}
-                onChange={this.searchInfo}
                 >
-
                 </input>
             </div>
         );
