@@ -1,9 +1,9 @@
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {HashRouter, Route, Switch} from 'react-router-dom';
 import Coins from './Coins';
 import Coin from './Coin';
 
 function Router() {
-    return <BrowserRouter>
+    return <HashRouter>
         <Switch>
             <Route path='/:coinId'>
                 <Coin />
@@ -12,7 +12,7 @@ function Router() {
                 <Coins />
             </Route>
         </Switch>
-    </BrowserRouter>
+    </HashRouter>
 }
 
 export default Router;
