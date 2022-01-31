@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { fetchCoins } from '../api';
 import { Helmet } from 'react-helmet';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { isDarkAtom } from '../atom';
 
 const Container = styled.div`
     padding: 0px 20px;
@@ -58,6 +60,17 @@ const Img = styled.img`
     margin-right: 10px;
 `;
 
+const Btn = styled.button`
+    background-color: red;
+    color: white;
+    border: 0;
+    border-radius: 10px;
+    margin: 0px 5px;
+    &:hover {
+        background-color: #6e1d17;
+    }
+`;
+
 interface ICoin{
     id: string;
     name: string;
@@ -69,7 +82,9 @@ interface ICoin{
 }
 
 function Coins() {
-     const { isLoading, data } = useQuery<ICoin[]>('allCoins', fetchCoins); // fetcher func이 로딩중이면 isLoading에 boolean형으로 상태 반환
+    const setDarkAtom = useSetRecoilState(isDarkAtom);
+    const isDark = useRecoilValue(isDarkAtom);
+    const { isLoading, data } = useQuery<ICoin[]>('allCoins', fetchCoins); // fetcher func이 로딩중이면 isLoading에 boolean형으로 상태 반환
     // const [coins, setCoins] = useState<ICoin[]>([]);
     // const [loading, setLoading] = useState(true);
     // useEffect(() => {
@@ -86,6 +101,7 @@ function Coins() {
         </Helmet>
         <Header>
             <Title>COIN</Title>
+            <Btn onClick={() => setDarkAtom((current) => !current)}>{isDark ? 'Dark' : 'Light'} mode</Btn>
         </Header>
         {isLoading ? 
             <Loader>Loading...</Loader>
