@@ -1,0 +1,265 @@
+<html>
+    <style>
+        body {
+            background-color: burlywood;
+            color: black;
+            margin-left: 40px;
+            margin-right: 40px;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        table { /**table의 바탕색 흰색으로 설정**/
+            background-color: white;
+        }
+
+        hr {
+            height: 2px;
+            border: solid darkslategray;
+            background-color: darkslategray
+        }
+
+        caption { /**table 제목의 글꼴 bold 적용**/
+            font-weight: bold;
+        }
+    </style>
+    <body>
+        <h3>My SCHEDULE</h3>
+        <hr>
+        <table border="1"> <!--table의 외곽선 두께 1px로 설정-->
+            <caption style="padding-bottom: 5px;">2022-2nd Semester</caption>
+            <thead>
+                <tr> <!--column명 한글에서 영어로 수정-->
+                    <th>Time</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>09:00~09:30</td>
+                    <td rowspan="6" align="center">수면</td>
+                    <td rowspan="3" align="center">수면</td>
+                    <td rowspan="4" align="center">수면</td>
+                    <td rowspan="3" align="center">수면</td>
+                    <td 
+                        rowspan="2" 
+                        align="center"
+                        style="background-color: rgb(255, 128, 149);"
+                        >
+                        자아와명상2
+                    </td>
+                </tr>
+                <tr>
+                    <td>09:30~10:00</td>
+                </tr>
+                <tr>
+                    <td>10:00~10:30</td>
+                    <td  
+                        rowspan="6" 
+                        align="center"
+                        style="background-color: rgb(255, 187, 0);"
+                        >
+                        어드벤처디자인
+                    </td>
+                </tr>
+                <tr>
+                    <td>10:30~11:00</td>
+                    <td  
+                        rowspan="3" 
+                        align="center"
+                        style="background-color: rgba(0, 119, 255, 0.922);"
+                        >
+                        데이터사이언스개론
+                    </td>
+                    <td  
+                        rowspan="3" 
+                        align="center"
+                        style="background-color: rgba(0, 119, 255, 0.922);"
+                        >
+                        데이터사이언스개론
+                    </td>
+                </tr>
+                <tr>
+                    <td>11:00~11:30</td>
+                    <td
+                        rowspan="3"
+                        align="center"
+                        style="background-color: rgb(223, 134, 134);"
+                        >
+                        이산수학
+                    </td>
+                </tr>
+                <tr>
+                    <td>11:30~12:00</td>
+                </tr>
+                <tr>
+                    <td>12:00~12:30</td>
+                    <td
+                        rowspan="3"
+                        align="center"
+                        style="background-color: rgb(223, 134, 134);"
+                        >
+                        이산수학
+                    </td>
+                    <td rowspan="4">
+                        <ul>
+                            <div>[점심]</div>
+                            <li>점심식사</li>
+                            <li>cs231n 수강</li>
+                        </ul>
+                    </td>
+                    <td rowspan="6">
+                        <ol type="a">
+                            <div>[점심]</div>
+                            <li>점심식사</li>
+                            <li>cs231n 수강</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <td>12:30~13:00</td>
+                    <td rowspan="3">
+                        <ul>
+                            <div>[점심]</div>
+                            <li type="square">점심식사</li>
+                            <li type="square">기타연습</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>13:00~13:30</td>
+                    <td rowspan="2" align="center">
+                        점심식사
+                    </td>
+                </tr>
+                <tr>
+                    <td>13:30~14:00</td>
+                    <td rowspan="3">
+                        <ul>
+                            <div>[점심]</div>
+                            <li>점심식사</li>
+                            <li>기타연습</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>14:00~14:30</td>
+                    <td
+                        rowspan="4"
+                        align="center"
+                        style="background-color: rgb(229, 169, 255);"
+                        >
+                        인터넷프로그래밍
+                    </td>
+                    <td
+                        rowspan="3"
+                        align="center"
+                        style="background-color: yellowgreen;"
+                        >
+                        공학선형대수학
+                    </td>
+                    <td
+                        rowspan="4"
+                        align="center"
+                        style="background-color: rgb(229, 169, 255);"
+                        >
+                        인터넷프로그래밍
+                    </td>
+                </tr>
+                <tr>
+                    <td>14:30~15:00</td>
+                </tr>
+                <tr>
+                    <td>15:00~15:30</td>
+                    <td
+                        rowspan="4"
+                        align="center"
+                        style="background-color: yellow;"
+                        >
+                        자연과기술명작세미나
+                    </td>
+                    <td
+                        rowspan="4"
+                        align="center"
+                        style="background-color: yellow;"
+                        >
+                        자연과기술명작세미나
+                    </td>
+                </tr>
+                <tr>
+                    <td>15:30~16:00</td>
+                    <td rowspan="6">
+                        <ul>
+                            <div>[저녁]</div>
+                            <li>cs231n 수강</li>
+                            <li>저녁식사</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>16:00~16:30</td>
+                    <td rowspan="2" align="center">현여울</td>
+                    <td rowspan="1" align="center">귀가</td>
+                </tr>
+                <tr>
+                    <td>16:30~17:00</td>
+                    <td rowspan="4">
+                        <ol type="1">
+                            <div>[저녁]</div>
+                            <li>저녁식사</li>
+                            <li>CLRS</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <td>17:00~17:30</td>
+                    <td
+                        rowspan="3"
+                        align="center"
+                        style="background-color: yellowgreen;"
+                        >
+                        공학선형대수학
+                    </td>
+                    <td rowspan="2" align="center">음샘</td>
+                    <td rowspan="3">
+                        <ol type="A">
+                            <div>[저녁]</div>
+                            <li>자습</li>
+                            <li>동아리방</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <td>17:30~18:00</td>
+                </tr>
+                <tr>
+                    <td>18:00~18:30</td>
+                    <td rowspan="2" align="center">현여울 레슨</td>
+                </tr>
+                <tr>
+                    <td>18:30~19:00</td>
+                    <td rowspan="1" align="center">현여울 레슨</td>
+                    <td rowspan="4" align="center">CLRS</td>
+                    <td rowspan="1" align="center">현여울 레슨</td>
+                    <td rowspan="4" align="center" style="background-color: gray;">EAS2</td>
+                </tr>
+                <tr>
+                    <td>19:00~19:30</td>
+                    <!--사진 생략하고 남는 공간에 다른 스케줄 입력-->
+                    <td colspan="2" rowspan="3" align="center">자유시간</td>
+                    <td rowspan="3" align="center">자유시간</td>
+                </tr>
+                <tr>
+                    <td>19:30~20:00</td>
+                </tr>
+                <tr>
+                    <td>20:00~20:30</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
