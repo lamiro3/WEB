@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Ko TaeHyeon's Career Film</title>
+    <script>
+        function INFO_click(){ //상단 bar INFO 버튼 클릭했을때 이벤트
+            document.getElementById("screen").src = "Ownpage_INFO.html" //iframe의 src를 변경
+        }
+        function SCH_click(){ //상단 bar SCHEDULE 버튼 클릭했을때 이벤트
+            document.getElementById("screen").src = "Ownpage_SCH.html" //iframe의 src를 변경
+        }
+    </script>
+    <style>
+        body {
+            background-color: burlywood;
+            color: chocolate;
+            margin-left: 40px;
+            margin-right: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: darkred;
+        }
+
+        hr {
+            height: 5px;
+            border: solid darkslategray;
+            background-color: darkslategray
+        }
+
+        .menu { /**상단 bar style**/
+            background-color: burlywood;
+            color: rgb(32, 52, 52);
+            font-weight: bold;
+            border: 0;
+            padding: auto;
+            
+        }
+
+        .menu:hover { /**상단 bar의 버튼 위에 마우스 커서가 올려져있을때의 이벤트**/
+            color: darkred;
+        }
+
+        #window { /**iframe을 감쌀, 앞으로 필름 모양처럼 구현 될 흑색 바탕의 사각형**/
+            background-color: black;
+            border-radius: 10px;
+            width: 1100px;
+            height: 700px;
+            margin-top: 20px;
+            padding-top: 100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    </style>
+    <script>
+    </script>
+</head>
+
+<body>
+    <h1>Ko TaeHyeon</h1>
+    <hr>
+    <div align="left" id="menus">
+        <button id="INFO" class="menu" onclick="INFO_click()">INFO</button> <!--onclick event 적용-->
+        <button id="SCH" class="menu" onclick="SCH_click()">SCHEDULE</button> <!--onclick event 적용-->
+        <button class="menu">PROJECT</button>
+    </div>
+    <div id="window">
+        <!--기본값으로 INFO가 iframe에 출력되도록 함-->
+        <iframe id="screen" style="border: none; border-radius: 10px;" src="Ownpage_INFO.html" name="screen" width="900" height="600"></iframe>
+    </div>
+</body>
+</html>
