@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #profile_box {
+            width: 150px;
+            height: 70px;
+        }
+    </style>
+</head>
+<body>
+    <h2>강의 사이트 회원가입</h2>
+    <hr>
+    <div>ID : <input type="text" placeholder="ID를 입력하세요"></div>
+    <div>PW : <input type="password" placeholder="PW를 입력하세요"></div>
+    <div>Profile : <textarea id="profile_box" placeholder="
+profile 내용 기입"></textarea></div>
+    <div>성별 : <input type="text" list="gender"><datalist id="gender">
+        <option value="남자"></option>
+        <option value="여자"></option>
+    </datalist></div>
+    <br>
+    <hr>
+    <h2>관심분야</h2>
+    <label>CSE <input type="checkbox"></label>
+    <label>ENG <input type="checkbox"></label>
+    <label>Research <input type="checkbox"></label>
+    <hr>
+    <h2>지원 강의</h2>
+    <br>
+    <div>
+        <img src="./react.png">
+        <br>
+        <label><input type="radio"> React</label>
+    </div>
+    <div>
+        <img src="./jsp.png">
+        <br>
+        <label><input type="radio"> jsp</label>
+    </div>
+    <div>
+        <img src="./spring.png">
+        <br>
+        <label><input type="radio"> Spring</label>
+    </div>
+    <br>
+    <hr>
+    <input type="submit" value="제출하기"> <input type="reset" value="초기화하기">
+</body>
+</html>

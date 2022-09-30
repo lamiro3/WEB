@@ -1,0 +1,57 @@
+<!--
+1.<select>와 <datalist>의 차이점에 대해 서술하시오
+    => datalist는 미리 입력된 값 외에 사용자가 임의로 입력한 변수값도 데이터 입력을 받음
+    => select는 개발자가 미리 입력한 값 외에는 데이터를 받을 수 없다.
+
+2.<input type="">과 <button type="">의 차이점에 대해 서술하시오
+    => input은 스스로 닫는 태그
+    => input의 type에는 button, reset, submit, image 이렇게 총 4가지가 있음
+    => button은 스스로 닫지 않는 태그, 따라서 하위 태크들 추가 가능
+    => button의 type에는 button, reset, submit 이렇게 총 3가지가 있음
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h2>기사 작성</h2>
+    <hr>
+    <div>스포츠 분야 : <select name="sports">
+        <option value="1">축구</option>
+        <option value="2">하키</option>
+        <option value="3">농구</option>
+    </select></div>
+    <div>개최 장소 : <input type="text" list="regions"><datalist id="regions">
+        <option value="잠실"></option>
+        <option value="천안"></option>
+        <option value="아산"></option>
+    </datalist></div>
+    <div>선수 : <input type="text" list="players"><datalist id="players">
+        <option value="이번 최고의 선수는 OOO 선수였습니다. OOO선수는..."></option>
+        <option value="이번 최악의 선수는 OOO 선수였습니다. OOO선수는..."></option>
+    </datalist></div>
+    <hr>
+    <div>검색 : <input type="text"></div>
+    <div><input type="button" value="검색1"> <button type="button">검색2</button></div>
+    <br>
+    <div>기사 제출 :</div>
+    <div><input type="submit" value="사랑일보"> <button type="submit">인생스포츠</button></div>
+    <br>
+    <div>초기화 버튼 : </div>
+    <div><input type="reset" value="리셋1"> <button type="reset">리셋2</button></div>
+    <br>
+    <div>이미지 버튼 : <input class="btn" type="image" src="./red_btn.png"> <button type="button"><img class="btn" src="./green_btn.png"></button></div>
+    <hr>
+</body>
+</html>
