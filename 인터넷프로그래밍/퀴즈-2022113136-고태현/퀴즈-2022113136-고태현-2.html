@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>카드 정보 입력</legend>
+        <ol type="1">
+            <li>카드 회사<select>
+                <option value="1">Woori BC</option>
+                <option value="2" selected>Samsung</option>
+                <option value="3">Shinhan</option>
+                <option value="4">KB card</option>
+            </select></li>
+            <li>카드 타입 <label for="c_type"><input type="radio" name="c_type" value="1">VISA</label> <label><input type="radio" name="c_type" value="2"></label>Mastercard</li>
+            <li>카드 번호 <input type="number"> * <input type="number"> * <input type="number"> * <input type="number"></li>
+            <li>CRC 번호 <input type="number"></li>
+            <li>카드 소유자 이름 <input type="text" placeholder="카드 상의 이름"></li>
+            <li>카드 유효기간 <input type="month"></li>
+        </ol>
+    </fieldset>
+    <br>
+    <input type="submit" value="전송">
+</body>
+</html>
