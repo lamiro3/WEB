@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <title>Document</title>
     <style>
-        pre {
+        pre { /**pre태그를 이용해 삽입될 텍스트의 글꼴 및 크기 설정**/
             font-family: "맑은 고딕";
             font-size: medium;
         }
@@ -20,6 +20,7 @@
 안녕하세요. AI융합학부 2022113136 고태현입니다.
 자기소개 페이지를 통해 제 자신을 소개합니다.
         </pre>
+        <!--이미지의 너비를 200px, 높이를 300px-->
         <img style="width: 200px; height: 300px;" src="C:\Users\고태현\Pictures\profile.jpg">
         <pre>
     고태현</pre>
@@ -27,7 +28,8 @@
     <nav>
         <h2>목차</h2>
         <br>
-        <ul>
+        <ul><!--순서가 없는 리스트이므로 ul 사용-->
+            <!--href를 #N 꼴로 설정(id:N인 태그로 이동)-->
             <li><a href="#1">전공소개</a></li>
             <li><a href="#2">보유기술</a></li>
             <li><a href="#3">수상이력</a></li>
@@ -47,6 +49,7 @@
             <details>
                 <summary id="2">보유기술</summary>
                 <br>
+                <!--meter, progress 태그의 min = 0, max = 100으로 설정-->
                 <div>인터넷 프로그래밍 <meter min="0" max="100" value="50"></meter></div>
                 <div>Python <meter min="0" max="100" value="80"></meter></div>
                 <div>영어회화 <meter min="0" max="100" value="50"></meter></div>
@@ -58,10 +61,11 @@
             <details>
                 <summary id="3">오늘의 시간표</summary>
                 <br>
+                <!--bold체, 하이라이트 효과 적용-->
                 <b><mark>2022.09.30 시간표</mark></b>
                 <pre>
 
-
+<!--time 태그를 이용해 각 스케줄 별 시간 삽입-->
 기상 <time>09:00</time>
 인터넷프로그래밍 수강 <time>14:00</time>
 한강 라이딩 <time>18:00</time>
@@ -76,6 +80,7 @@
     </aside>
     <br>
     <footer>
+        <!--엔티티 표현이용하여 copyright 기호 삽입-->
         &copy; 2022년 9월 30일, [2022113136 고태현]
     </footer>
 </body>

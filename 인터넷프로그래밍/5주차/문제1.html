@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .btn {
+        .btn { /**이미지 버튼의 크기 설정**/
             width: 50px;
             height: 50px;
         }
@@ -27,31 +27,42 @@
 <body>
     <h2>기사 작성</h2>
     <hr>
-    <div>스포츠 분야 : <select name="sports">
+    <div>스포츠 분야 : <select name="sports"> 
+        <!--select 태그이므로, 각 option 태그 사이에 스포츠 분야 종류 입력-->
         <option value="1">축구</option>
         <option value="2">하키</option>
         <option value="3">농구</option>
     </select></div>
     <div>개최 장소 : <input type="text" list="regions"><datalist id="regions">
+        <!--datalist 태그이므로, 각 option 태그의 value에 개최 장소 종류 입력
+            input 태그의 list와 datalist 태그의 id를 regions로 통일-->
         <option value="잠실"></option>
         <option value="천안"></option>
         <option value="아산"></option>
     </datalist></div>
     <div>선수 : <input type="text" list="players"><datalist id="players">
+        <!--datalist 태그이므로, 각 option 태그의 value에 선수 종류 입력
+            input 태그의 list와 datalist 태그의 id를 players로 통일-->
         <option value="이번 최고의 선수는 OOO 선수였습니다. OOO선수는..."></option>
         <option value="이번 최악의 선수는 OOO 선수였습니다. OOO선수는..."></option>
     </datalist></div>
-    <hr>
+    <hr> <!--가로선 삽입-->
+    <!--검색 옆에 text 입력 box 삽입-->
     <div>검색 : <input type="text"></div>
+    <!--input과 button을 활용해 검색 버튼 삽입-->
     <div><input type="button" value="검색1"> <button type="button">검색2</button></div>
-    <br>
+    <br><!--개행-->
+    <!--input과 button을 활용해 submit 버튼 삽입-->
     <div>기사 제출 :</div>
     <div><input type="submit" value="사랑일보"> <button type="submit">인생스포츠</button></div>
-    <br>
+    <br><!--개행-->
+    <!--input과 button을 활용해 reset 버튼 삽입-->
     <div>초기화 버튼 : </div>
     <div><input type="reset" value="리셋1"> <button type="reset">리셋2</button></div>
-    <br>
+    <br><!--개행-->
+    <!--input과 button을 활용해 image 버튼 삽입-->
+    <!--<button>의 경우 “image”라는 type이 존재하지 않기 때문에, <button> 태그 사이에 <img> 태그를 삽입하는 방법으로 해결-->
     <div>이미지 버튼 : <input class="btn" type="image" src="./img/red_btn.png"> <button type="button"><img class="btn" src="./img/green_btn.png"></button></div>
-    <hr>
+    <hr><!--가로선 삽입-->
 </body>
 </html>

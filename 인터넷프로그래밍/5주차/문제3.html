@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #profile_box {
+        #profile_box { /**profile_box textarea의 크기 설정**/
             width: 150px;
             height: 70px;
         }
@@ -19,19 +19,33 @@
     <div>PW : <input type="password" placeholder="PW를 입력하세요"></div>
     <div>Profile : <textarea id="profile_box" placeholder="
 profile 내용 기입"></textarea></div>
+<!--
+1.	<datalist>를 활용하기위해 <input type = “text” list = “gender”> 삽입
+2.	<datalist>의 id를 “gender”로 통일
+3.	각 <option>의 value에 각각 “남자”, “여자” 입력
+-->
     <div>성별 : <input type="text" list="gender"><datalist id="gender">
         <option value="남자"></option>
         <option value="여자"></option>
     </datalist></div>
-    <br>
-    <hr>
+    <br><!--줄바꿈-->
+    <hr><!--가로선 삽입-->
     <h2>관심분야</h2>
+<!--
+1.	<input type = “checkbox”>로 설정하고 <label> 태그로 감싸기
+2.	Label이 checkbox의 왼쪽에 위치하므로 label(CSE, ENG, Research)을(를) <label>태그 안, <input> 태그 왼쪽에 입력
+-->
     <label>CSE <input type="checkbox"></label>
     <label>ENG <input type="checkbox"></label>
     <label>Research <input type="checkbox"></label>
     <hr>
     <h2>지원 강의</h2>
     <br>
+<!--
+1.	<input type = “radio”>로 설정하고 <label> 태그로 감싸기
+2.	Label이 radio의 오른쪽에 위치하므로 label(React, jsp, Spring)을(를) <label>태그 안, <input> 태그 오른쪽에 입력
+3.	각 <input type=”radio”> 태그를 <div>태그로 감싸 3개의 세트를 만든 뒤, 각 <div>태그 속에 <img>태그를 이용해 이미지 삽입
+-->
     <div>
         <img src="./img/react.png">
         <br>

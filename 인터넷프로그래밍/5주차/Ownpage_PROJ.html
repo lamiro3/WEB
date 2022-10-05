@@ -27,13 +27,13 @@
             background-color: darkslategray
         }
 
-        li {
+        li { /**li 태그의 style 설정**/
             font-size: 20px;
             color: black;
             font-family: "맑은 고딕";
         }
 
-        summary {
+        summary { /**summary 태그의 style 설정**/
             font-size: 19px;
         }
     </style>
@@ -42,6 +42,8 @@
     <nav>
         <h2>My projects</h2>
         <ul>
+            <!--앵커 태그를 활용해 
+                각 프로젝트명을 클릭할 시 해당 목차(엄밀히 말하면 해당 summary태그)로 이동하도록 함-->
             <a href="#1"><li>Computer Vision</li></a>
             <a href="#2"><li>WEB</li></a>
             <a href="#3"><li>Python</li></a>
@@ -55,6 +57,7 @@
         <article>
             <details>
                 <summary id="1">
+                    <!--summary를 눌렀을 때 그 project에 해당하는 github repository 사이트를 외부에서 열리게끔 함-->
                     <a href="https://github.com/lamiro3/Computer_Vision">Computer Vision</a>
                 </summary>
                 <ul>
@@ -67,6 +70,7 @@
         <article>
             <details>
                 <summary id="2">
+                    <!--summary를 눌렀을 때 그 project에 해당하는 github repository 사이트를 외부에서 열리게끔 함-->
                     <a href="https://github.com/lamiro3/WEB">WEB</a>
                 </summary>
                 <ul>
@@ -81,6 +85,7 @@
         <article>
             <details>
                 <summary id="3">
+                    <!--summary를 눌렀을 때 그 project에 해당하는 github repository 사이트를 외부에서 열리게끔 함-->
                     <a href="https://github.com/lamiro3/Python">python</a>
                 </summary>
                 <ul>
@@ -99,6 +104,7 @@
         <article>
             <details>
                 <summary id="4">
+                    <!--summary를 눌렀을 때 그 project에 해당하는 github repository 사이트를 외부에서 열리게끔 함-->
                     <a href="https://github.com/lamiro3/Algorithms_and_Data_structures">Algorithms and Data structures</a>
                 </summary>
                 <ul>
@@ -111,6 +117,7 @@
         <article>
             <details>
                 <summary id="5">
+                    <!--summary를 눌렀을 때 그 project에 해당하는 github repository 사이트를 외부에서 열리게끔 함-->
                     <a href="https://github.com/lamiro3/R">R</a>
                 </summary>
                 <ul>
@@ -121,8 +128,10 @@
         <article>
             <details>
                 <summary id="6">
+                    <!--summary를 눌렀을 때 그 project에 해당하는 github repository 사이트를 외부에서 열리게끔 함-->
                     <a href="https://github.com/lamiro3/myDevBlog">myDevBlog</a>
                 </summary>
+                <!--세부요소가 없기 때문에 아무 내용도 넣지 않음-->
             </details>
         </article>
     </section>
