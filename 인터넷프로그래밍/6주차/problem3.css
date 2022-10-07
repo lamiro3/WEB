@@ -1,0 +1,24 @@
+body {
+    background-color: wheat;
+}
+
+ul {
+    list-style-type: none;
+}
+
+fieldset {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+fieldset legend {
+    font-weight: bold;
+    font-size: 18px;
+    color: brown;
+}
+
+ul li {
+    margin-bottom: 10px;
+}

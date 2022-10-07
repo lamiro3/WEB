@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <hr>
+    <h2>반티 제작하기</h2>
+    <hr>
+    <div>이메일 <input type="email"></div>
+    <div>제작개수<small>(최소 20명)</small> <input type="number" min="20" max="50" step="1" value="20"></div>
+    <hr>
+    <div>선호색상 <input type="color" value="#edebe6"></div>
+    <div>희망 배송일자 <input type="date"></div>
+    <br>
+    <div>옷사이즈<small>(XS, S, M, L, XL)</small> <input style="color: gray;" type="range" list="size" min="85" max="105" step="5"><datalist id="size">
+            <option value="85"></option>
+            <option value="90"></option> 
+            <option value="95" selected></option> 
+            <option value="100"></option> 
+            <option value="105"></option> 
+        </datalist>
+    </div>
+    </pre>
+</body>
+</html>
