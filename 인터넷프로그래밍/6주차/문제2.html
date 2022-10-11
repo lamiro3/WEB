@@ -8,28 +8,48 @@
 </head>
 <body>
     <fieldset>
-        <legend>개인 정보</legend>
+        <legend>개인 정보</legend> <!--범례명: 개인정보-->
         <ul>
             <li>이름 <input type="text" placeholder="여백없이 입력"></li>
             <li>연락처 <input type="tel" placeholder="연락가능한 번호"></li>
         </ul>
     </fieldset>
     <fieldset>
-        <legend>배송지 정보</legend>
+        <legend>배송지 정보</legend> <!--범례명: 배송지 정보-->
         <ul>
             <li>주소 <input type="text"></li>
             <li>전화번호 <input type="tel"></li>
+            <!--
+                3행 40열 크기의 문자열 입력란 삽입
+            -->
             <li>요청사항 <textarea rows="3" cols="40"></textarea></li>
         </ul>
     </fieldset>
     <fieldset>
-        <legend>주문 정보</legend>
+        <legend>주문 정보</legend> <!--범례명: 주문 정보-->
         <ul>
+            <!--
+                checkbox와 number 입력란 삽입
+                checkbox의 label명 오른쪽에 입력
+
+                사과
+                최소 0, 최대 8
+
+                파인애플
+                최소 0, 최대 10
+
+                딸기
+                최소 0, 최대 20
+            -->
             <li><label><input type="checkbox">사과 <input value="0" type="number" min="0" max="8">개</label></li>
             <li><label><input type="checkbox">파인애플 <input value="0"  type="number" min="0" max="10">개</label></li>
             <li><label><input type="checkbox">딸기 <input value="0" type="number" min="0" max="20">개</label></li>
         </ul>
     </fieldset>
+    <!--
+        submit과 reset이용해
+        제출, 초기화 버튼 삽입
+    -->
     <input type="submit" value="주문하기"> <input type="reset" value="다시 작성">
 </body>
 </html>

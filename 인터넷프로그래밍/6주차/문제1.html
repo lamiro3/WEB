@@ -7,15 +7,38 @@
     <title>Document</title>
 </head>
 <body>
-    <hr>
-    <h2>반티 제작하기</h2>
+    <hr><!--가로선 삽입-->
+    <h2>반티 제작하기</h2><!--머리말 삽입-->
     <hr>
     <div>이메일 <input type="email"></div>
+    <!--
+        input type = number
+        최소: 20명
+        최대: 50명
+        간격: 1명
+        으로 제작개수 입력란 삽입
+
+        small tag이용해 작은 크기 txt 삽입
+    -->
     <div>제작개수<small>(최소 20명)</small> <input type="number" min="20" max="50" step="1" value="20"></div>
     <hr>
     <div>선호색상 <input type="color" value="#edebe6"></div>
     <div>희망 배송일자 <input type="date"></div>
     <br>
+    <!--
+        input type = range
+          "   list = size
+        datalist id = size
+
+        최소: 85
+        최대: 105
+        간격: 5
+        으로 옷사이즈 입력란 삽입
+
+        option value="95" selected으로 95 사이즈를 기본값으로 설정
+
+        small tag이용해 작은 크기 txt 삽입
+    -->
     <div>옷사이즈<small>(XS, S, M, L, XL)</small> <input style="color: gray;" type="range" list="size" min="85" max="105" step="5"><datalist id="size">
             <option value="85"></option>
             <option value="90"></option> 

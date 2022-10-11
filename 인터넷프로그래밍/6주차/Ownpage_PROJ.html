@@ -1,0 +1,139 @@
+<!--Ownpage_PROJ.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: burlywood;
+            color: chocolate;
+            margin-left: 40px;
+            margin-right: 40px;
+            padding-top: 60px;
+            font-weight: bold;
+        }
+
+        h1 {
+            text-align: center;
+            color: darkred;
+        }
+
+        hr {
+            height: 5px;
+            border: solid darkslategray;
+            background-color: darkslategray
+        }
+
+        li { /**li 태그의 style 설정**/
+            font-size: 20px;
+            color: black;
+            font-family: "맑은 고딕";
+        }
+
+        summary { /**summary 태그의 style 설정**/
+            font-size: 19px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h2>My projects</h2>
+        <ul>
+            <!--앵커 태그를 활용해 
+                각 프로젝트명을 클릭할 시 해당 목차(엄밀히 말하면 해당 summary태그)로 이동하도록 함-->
+            <a href="#1"><li>Computer Vision</li></a>
+            <a href="#2"><li>WEB</li></a>
+            <a href="#3"><li>Python</li></a>
+            <a href="#4"><li>Algorithms and Data structures</li></a>
+            <a href="#5"><li>R</li></a>
+            <a href="#6"><li>myDevBlog</li></a>
+        </ul>
+    </nav>
+    <hr>
+    <section>
+        <article>
+            <details>
+                <summary id="1">
+                    <!--summary를 눌렀을 때 그 project에 해당하는 github repository 사이트를 외부에서 열리게끔 함-->
+                    <a href="https://github.com/lamiro3/Computer_Vision">Computer Vision</a>
+                </summary>
+                <ul>
+                    <li>Farm_proj(smart mirror)</li>
+                    <li>OpenCV_Project_Python</li>
+                    <li>Real_time_Face_Recognition&Mosaic</li>
+                </ul>
+            </details>
+        </article>
+        <article>
+            <details>
+                <summary id="2">
+                    <!--summary를 눌렀을 때 그 project에 해당하는 github repository 사이트를 외부에서 열리게끔 함-->
+                    <a href="https://github.com/lamiro3/WEB">WEB</a>
+                </summary>
+                <ul>
+                    <li>WEB-OS</li>
+                    <li>cryptoTracker</li>
+                    <li>myDevBlog</li>
+                    <li>todo</li>
+                    <li>Internet_programming</li>
+                </ul>
+            </details>
+        </article>
+        <article>
+            <details>
+                <summary id="3">
+                    <!--summary를 눌렀을 때 그 project에 해당하는 github repository 사이트를 외부에서 열리게끔 함-->
+                    <a href="https://github.com/lamiro3/Python">python</a>
+                </summary>
+                <ul>
+                    <li>IDS</li>
+                    <li>Deep_Daiv_text_mining</li>
+                    <li>covid_19_forecasting_model</li>
+                    <li>data_analysis</li>
+                    <li>deep_learning</li>
+                    <li>hacking</li>
+                    <li>farm_codingtest</li>
+                    <li>jupyter</li>
+                    <li>virus_diffusion_simulation_program</li>
+                </ul>
+            </details>
+        </article>
+        <article>
+            <details>
+                <summary id="4">
+                    <!--summary를 눌렀을 때 그 project에 해당하는 github repository 사이트를 외부에서 열리게끔 함-->
+                    <a href="https://github.com/lamiro3/Algorithms_and_Data_structures">Algorithms and Data structures</a>
+                </summary>
+                <ul>
+                    <li>CLRS</li>
+                    <li>Cproject</li>
+                    <li>Baekjoon</li>
+                </ul>
+            </details>
+        </article>
+        <article>
+            <details>
+                <summary id="5">
+                    <!--summary를 눌렀을 때 그 project에 해당하는 github repository 사이트를 외부에서 열리게끔 함-->
+                    <a href="https://github.com/lamiro3/R">R</a>
+                </summary>
+                <ul>
+                    <li>Adventure_Design</li>
+                </ul>
+            </details>
+        </article>
+        <article>
+            <details>
+                <summary id="6">
+                    <!--summary를 눌렀을 때 그 project에 해당하는 github repository 사이트를 외부에서 열리게끔 함-->
+                    <a href="https://github.com/lamiro3/myDevBlog">myDevBlog</a>
+                </summary>
+                <!--세부요소가 없기 때문에 아무 내용도 넣지 않음-->
+            </details>
+        </article>
+    </section>
+</body>
+</html>
