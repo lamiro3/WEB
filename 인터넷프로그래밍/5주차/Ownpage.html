@@ -16,6 +16,9 @@
         function PROJ_click() { // 상단 bar PROJECT 버튼 클릭했을때 이벤트
             document.getElementById("screen").src = "Ownpage_PROJ.html" //iframe의 src를 변경
         }
+        function LOGIN_click() {
+            document.getElementById("screen").src = "Ownpage_LOGIN.html" //iframe의 src를 변경
+        }
     </script>
     <style>
         body {
@@ -60,17 +63,20 @@
             margin-left: auto;
             margin-right: auto;
         }
-
+        #menus {
+            display: flex;
+        }
     </style>
 </head>
 
 <body>
     <h1>Ko TaeHyeon</h1>
     <hr>
-    <div align="left" id="menus">
+    <div id="menus" align="left">
         <button id="INFO" class="menu" onclick="INFO_click()">INFO</button> <!--onclick event 적용-->
         <button id="SCH" class="menu" onclick="SCH_click()">SCHEDULE</button> <!--onclick event 적용-->
         <button id="PROJ" class="menu" onclick="PROJ_click()">PROJECT</button> <!--onclick event 적용-->
+        <button id="LOGIN "class="menu" onclick="LOGIN_click()">LOG IN</button> <!--onclick event 적용-->
     </div>
     <div id="window">
         <!--기본값으로 INFO가 iframe에 출력되도록 함-->

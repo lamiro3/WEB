@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: burlywood;
+            color: chocolate;
+            margin-left: 40px;
+            margin-right: 40px;
+            padding-top: 60px;
+            font-weight: bold;
+        }
+
+        h1 {
+            text-align: center;
+            color: darkred;
+        }
+
+        hr {
+            height: 5px;
+            border: solid darkslategray;
+            background-color: darkslategray
+        }
+        fieldset legend {
+            color: burlywood;
+            text-align: center;
+            border: 3px solid darkslategray;
+            background-color: darkslategray;
+            border-radius: 3px;
+            padding: 5px 8px;
+        }
+
+        fieldset div {
+            color: darkred;
+        }
+
+        fieldset {
+            border-color: darkslategray;
+            border-style: solid;
+            border-radius: 5px;
+            width: 140px;
+            height: 190px;
+            margin: auto;
+        }
+
+        .box {
+            margin-top: 70px;
+        }
+
+        #emailbox {
+            border: 2px darkslategray solid;
+            border-radius: 3px;
+        }
+        #pwbox {
+            border: 2px darkslategray solid;
+            border-radius: 3px;
+        }
+        .LIFORM_BTN {
+            border: 2px darkslategray solid;
+            border-radius: 3px;
+            font-weight: bold;
+            background-color: rgb(255, 220, 175)
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>LOG IN</legend>
+        <div>E-mail<input type="email" id="emailbox" placeholder="examples@gmail.com"></div>
+        <div>Password<input type="password" id="pwbox" placeholder="your school ID"></div>
+        <div align="right"><input class="LIFORM_BTN" type="submit" value="LOG IN"><input class="LIFORM_BTN" type="button" value="Find/Change your PW"></div>
+    </fieldset>
+    <fieldset class="box">
+        <legend>SIGN UP</legend>
+        <div>E-mail<input type="email" id="emailbox" placeholder="examples@gmail.com"></div>
+        <div>Password<input type="password" id="pwbox" placeholder="your school ID"></div>
+        <div>AGE<input type="range" min="20" max="100" step="1" list="age">
+            <datalist id="age">
+                <option value="20"></option>
+                <option value="40"></option>
+                <option value="60"></option>
+                <option value="80"></option>
+                <option value="100"></option>
+            </datalist>
+        </div>
+        <div align="right"><input class="LIFORM_BTN" type="submit" value="SIGN UP"></div>
+    </fieldset>
+</body>
+</html>
