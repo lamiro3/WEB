@@ -1,0 +1,35 @@
+body {
+    background-color: aliceblue;
+}
+
+h1 {
+    color: brown;
+    text-align: center;
+}
+
+strong {
+    font-size: 20px;
+    color: blue;
+}
+
+header {
+    font-family: "휴먼편지체";
+}
+
+label {
+    font-family: "휴먼편지체";
+}
+
+#survey {
+    background-color: pink;
+}
+
+#copyright {
+    background-color: orange;
+    font-family: "휴먼편지체";
+    border-radius: 5px;
+}
+
+.block {
+    margin-bottom: 20px;
+}

@@ -1,0 +1,54 @@
+body {
+    background-color: aliceblue;
+}
+
+img { /**img 크기 설정**/
+    width: 200px;
+    height: 200px;
+}
+
+h1 {
+    text-align: center;
+    color: brown;
+}
+
+h2 {
+    color: blue;
+    text-shadow: 2px 2px 2px lightblue;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    font-family: "휴먼편지체";
+    padding-bottom: 10px;
+    border-bottom: 1px black solid;
+}
+
+ul {
+    border: 1px black dashed;
+}
+
+ul > li > a {
+    text-decoration: none;
+    color: blue;
+}
+
+p {
+    font-family: "휴먼편지체";
+    font-size: 1em;
+    text-indent: 1em;
+}
+
+footer {
+    background-color: orange;
+    color: black;
+    border-radius: 5px;    
+    font-family: "휴먼편지체";
+}
+
+footer a {
+    color: black;
+}

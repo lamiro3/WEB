@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url("./css/7.3_survey.css");
+    </style>
+</head>
+<body>
+    <h1>설문지</h1>
+    <header>
+        소프트웨어 기술에 대한 의견을 듣습니다. 많은 참여 부탁드립니다.
+    </header>
+    <hr>
+    <div id="survey">
+        <div class="block">
+            <strong>학년</strong>
+            <label>
+                <input name="grade" type="radio">1학년 
+                <input name="grade" type="radio">2학년 
+                <input name="grade" type="radio">3학년 
+                <input name="grade" type="radio">4학년
+            </label>
+        </div>
+        <div class="block">
+            <strong>성별</strong>
+            <label>
+                <input name="gender" type="radio">남
+                <input name="gender" type="radio">여
+            </label>
+        </div>
+        <div class="block">
+            <strong>관심 분야</strong>
+            <select>
+                <option selected value="모바일 소프트웨어">모바일 소프트웨어</option>
+                <option value="컴퓨터 비전">컴퓨터 비전</option>
+                <option value="정보보안">정보보안</option>
+            </select>
+        </div>
+        <div class="block">
+            <strong>진로(다중 선택)</strong>
+            <label>
+                <input type="checkbox">개발
+                <input type="checkbox">기획
+                <input type="checkbox">영업
+                <input type="checkbox">창업
+            </label>
+        </div>
+        <div class="block">
+            <strong>남기고 싶은 말</strong>
+            <textarea rows="5" cols="30" placeholder="글을 남겨주세요"></textarea>
+        </div>
+    </div>
+    <div id="copyright">
+        Copyright 2022-1 by Sunkyu
+    </div>
+</body>
+</html>
