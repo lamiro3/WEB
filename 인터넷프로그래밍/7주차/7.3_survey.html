@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        @import url("./css/7.3_survey.css");
+        @import url("./css/7.3_survey.css"); /**외부에서 css file import**/
     </style>
 </head>
 <body>
-    <h1>설문지</h1>
+    <h1>설문지</h1> <!--머리말 삽입-->
     <header>
         소프트웨어 기술에 대한 의견을 듣습니다. 많은 참여 부탁드립니다.
     </header>
-    <hr>
-    <div id="survey">
+    <hr> <!--가로선 삽입-->
+    <div id="survey"> <!--핑크색 바탕부분을 id가 survey인 div 태그로 묶음-->
         <div class="block">
-            <strong>학년</strong>
-            <label>
+            <strong>학년</strong> <!--strong 태그 이용해 글자 강조-->
+            <label> <!--중복이 불가능하므로 radio 사용-->
                 <input name="grade" type="radio">1학년 
                 <input name="grade" type="radio">2학년 
                 <input name="grade" type="radio">3학년 
@@ -27,22 +27,22 @@
         </div>
         <div class="block">
             <strong>성별</strong>
-            <label>
+            <label> <!--중복이 불가능하므로 radio 사용-->
                 <input name="gender" type="radio">남
                 <input name="gender" type="radio">여
             </label>
         </div>
         <div class="block">
             <strong>관심 분야</strong>
-            <select>
-                <option selected value="모바일 소프트웨어">모바일 소프트웨어</option>
+            <select> <!--드롭박스 삽입-->
+                <option selected value="모바일 소프트웨어">모바일 소프트웨어</option> <!--기본값: 모바일 소프트웨어-->
                 <option value="컴퓨터 비전">컴퓨터 비전</option>
                 <option value="정보보안">정보보안</option>
             </select>
         </div>
         <div class="block">
             <strong>진로(다중 선택)</strong>
-            <label>
+            <label><!--중복이 가능하므로 checkbox 사용-->
                 <input type="checkbox">개발
                 <input type="checkbox">기획
                 <input type="checkbox">영업
@@ -51,6 +51,7 @@
         </div>
         <div class="block">
             <strong>남기고 싶은 말</strong>
+            <!--행을 5, 열을 30으로 설정, 아무것도 입력되지 않았을때 "글을 남겨주세요"가 보이게끔 함-->
             <textarea rows="5" cols="30" placeholder="글을 남겨주세요"></textarea>
         </div>
     </div>
