@@ -1,13 +1,13 @@
-body {
+body { /**body의 배경색 설정**/
     background-color: aliceblue;
 }
 
-h1 {
+h1 { /**머리말(설문지)의 글자색, 정렬 설정**/
     color: brown;
     text-align: center;
 }
 
-strong {
+strong { /**학년 ~ 남기고 싶은 말의 글자 크기/색 설정**/
     font-size: 20px;
     color: blue;
 }
@@ -20,16 +20,16 @@ label {
     font-family: "휴먼편지체";
 }
 
-#survey {
+#survey { /**설문지가 있는 부분의 배경색 설정**/
     background-color: pink;
 }
 
-#copyright {
+#copyright { /**페이지 최하단의 배경색, 글꼴, border-radius 설정**/
     background-color: orange;
     font-family: "휴먼편지체";
     border-radius: 5px;
 }
 
-.block {
+.block { /**학년 ~ 남기고 싶은 말까지 각 부분의 하단 margin 설정**/
     margin-bottom: 20px;
 }
