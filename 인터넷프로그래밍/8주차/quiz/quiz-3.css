@@ -1,0 +1,35 @@
+.main {
+    background-color: lightblue;
+    background-size: 100%;
+}
+
+.headline {
+    color: brown;
+    background-color: yellow;
+    border: 4px purple solid;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 30px;
+    border-style:double;
+    text-shadow: 1px 1px 1px rgb(160, 88, 88);
+}
+
+.help {
+    font-weight: bold;
+}
+
+div.help {
+    color: blue;
+    font-size: small;
+}
+
+p.help {
+    color: red;
+    font-size: large;
+    font-family: "맑은 고딕";
+}
+
+#hot {
+    background-color: orangered;
+    font-weight: bold;
+}

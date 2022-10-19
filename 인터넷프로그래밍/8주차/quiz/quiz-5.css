@@ -1,0 +1,24 @@
+h1 {
+    color: yellow;
+    text-shadow: 3px 3px 7px  purple;
+    text-align: center;
+}
+
+hr {
+    height: 10px;
+    background-color: rgb(148, 228, 148);
+    border: none;
+}
+
+table {
+    margin: auto;
+}
+
+td > img{
+    width: 300px;
+    height: 300px;
+}
+
+td:hover{
+    box-shadow: 5px purple;
+}

@@ -1,0 +1,31 @@
+.main {
+    background-color: lightblue;
+}
+
+h3 {
+    color: green;
+}
+
+#center {
+    text-align: right;
+}
+
+#center > strong {
+    background-color: yellow;
+}
+
+.indent {
+    text-indent: 3em;
+}
+
+.indent p em {
+    color: green;
+}
+
+.indent p i > strong{
+    color: red;
+}
+
+.indent p > strong {
+    color: purple;
+}

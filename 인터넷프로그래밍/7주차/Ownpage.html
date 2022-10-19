@@ -32,6 +32,7 @@
         h1 {
             text-align: center;
             color: darkred;
+            text-shadow: 5px 5px 5px rgb(165, 107, 107) /**text shadow 설정**/
         }
 
         hr {
@@ -51,11 +52,14 @@
 
         .menu:hover { /**상단 bar의 버튼 위에 마우스 커서가 올려져있을때의 이벤트**/
             color: darkred;
+            font-size: larger; /**글자 크기 확대**/
+            transition-duration: 1s;
         }
 
         #window { /**iframe을 감쌀, 앞으로 필름 모양처럼 구현 될 흑색 바탕의 사각형**/
             background-color: black;
             border-radius: 10px;
+            box-shadow: 0px 10px gray;
             width: 1100px;
             height: 700px;
             margin-top: 20px;
