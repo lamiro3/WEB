@@ -1,0 +1,30 @@
+.container{
+    width: 600px;
+    height: 600px;
+    padding: 20px;
+    border: 20px #ccc solid;
+    background-color: lightblue;
+}
+
+img {
+    margin-top: 250px;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+}
+
+.content {
+    top: 400px;
+    width: 600px;
+    padding: 3px;
+    background-color: rgba(255, 255, 255, .5);
+    font-size: 10px;
+    text-align: center;
+}
+
+h1:hover {
+    color: yellow;
+    text-shadow: 3px 3px 3px orangered;
+}
+
+

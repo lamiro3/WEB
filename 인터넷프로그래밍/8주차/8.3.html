@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 520px;
+            border: 10px black solid;
+            padding: 20px 40px;
+            background-color: cadetblue;
+        }
+        
+        legend {
+            font-weight: bold;
+        }
+        
+        .container ul{
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>프론트엔드 개발자 지원서</h1>
+        <br>
+        <div>HTML, CSS, Javascript에 대한 기술적 이해와 경험이 있는 분을 찾습니다.</div>
+        <hr>
+        <fieldset>
+            <legend>개인정보</legend>
+            <ul style="list-style: none; background-color: bisque">
+                <li>이름 <input type="text" placeholder="공백없이 입력하세요"></li>
+                <li>연락처 <input type="tel"></li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>지원 분야</legend>
+            <ul style="background-color: aquamarine;">
+                <li><label><input type="radio" name="appli">웹 퍼블리싱</label></li>
+                <li><label><input type="radio" name="appli">웹 애플리케이션 개발</label></li>
+                <li><label><input type="radio" name="appli">개발 환경 개선</label></li>
+            </ul>
+            <fieldset>
+                <legend>지원 분야</legend>
+                <textarea rows="5" cols="63" placeholder="본사 지원 동기를 간략히 써 주세요."></textarea>
+            </fieldset>
+        </fieldset>
+        <br>
+        <input type="submit" value="접수하기"> <input type="reset" value="다시 쓰기">
+    </div>
+</body>
+</html>
