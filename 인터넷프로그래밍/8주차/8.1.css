@@ -4,13 +4,22 @@
     padding: 20px;
     border: 20px #ccc solid;
     background-color: lightblue;
+    overflow: hidden;
+}
+
+table td {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table td img {
+    margin-top: 200px;
+    margin-right: -20px;
 }
 
 img {
-    margin-top: 250px;
-    width: 80px;
-    height: 80px;
-    overflow: hidden;
+    width: 100px;
+    height: 100px;
 }
 
 .content {
