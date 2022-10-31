@@ -1,30 +1,30 @@
-.container {
+.container { /**class가 container인 태그의 스타일 정의**/
     width: 750px;
     padding: 10px;
     border: 20px #ccc dashed;
     border-radius: 50px;
 }
 
-img {
+img { /**img 태그의 스타일 정의**/
     float: left;
     margin: 30px 20px;
 }
 
-h1 {
+h1 { /**h1 태그의 스타일 정의**/
     font-size: 17px;
 }
 
-.accent {
+.accent { /**class가 accent인 태그의 스타일 정의**/
     font-weight: bold;
     color: red;
 }
 
-p {
+p { /**p 태그의 스타일 정의**/
     font-size: 16px;
-    line-height: 25px;
+    line-height: 25px; /**행간격 25px로 설정**/
 }
 
-a:hover{
+a:hover{ /**a 태그 위에 마우스 포인터 올라왔을시 스타일 정의**/
     background-color: yellow;
     color: red;
 }

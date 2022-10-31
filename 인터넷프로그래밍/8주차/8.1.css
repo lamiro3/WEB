@@ -1,28 +1,26 @@
-.container{
+.container{ /**class가 container인 태그에 스타일 적용**/
     width: 600px;
     height: 600px;
     padding: 20px;
     border: 20px #ccc solid;
     background-color: lightblue;
-    overflow: hidden;
+    overflow: hidden; /**container 영역 바깥에 있는 사진 부분 숨김**/
 }
-
-table td {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-table td img {
+table { /**<table>에 스타일 적용**/
+    width: 90%; /**margin 조절하기 위해 width를 90%로 설정**/
+    height: 100px;
+    margin-left: -60px;
     margin-top: 200px;
-    margin-right: -20px;
+    margin-bottom: -5px;
 }
 
-img {
+img { /**<img>에 스타일 적용**/
     width: 100px;
     height: 100px;
+    margin: 0px -1px;
 }
 
-.content {
+.content { /**class가 content인 태그에 스타일 적용**/
     top: 400px;
     width: 600px;
     padding: 3px;
@@ -31,9 +29,10 @@ img {
     text-align: center;
 }
 
-h1:hover {
+h1:hover { /**<h1>내에 있는 텍스트 위에 마우스 포인터가 있을 때 디자인 설정**/
     color: yellow;
     text-shadow: 3px 3px 3px orangered;
+    /**text-shadow를 활용해 텍스트 음영처리**/
 }
 
 
