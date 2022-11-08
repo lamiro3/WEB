@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div .season { /**계절 박스에 공통적으로 적용할 style 설정**/
+            border: 3px green solid;
+            padding: 50px 80px;
+            width: 160px;
+            height: 100px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        #season-block {
+            display: inline-block;
+            margin-top: 60px;
+        }
+
+        /**각 계절 박스의 배경색 설정**/
+        #spring { background-color: pink;}
+        #summer { background-color: skyblue;}
+        #fall { background-color: darkred;}
+        #winter { background-color: white;}
+
+        /**봄 이미지 그룹의 style 설정**/
+        #sp-img { position: relative; top: 40px;}
+        #sp-img div img { width: 140px; height: 100px;}
+
+        #sp-img #sp1 {
+            position: absolute;
+            z-index: 1;
+            top: 30px;
+        }
+
+        #sp-img #sp2 {
+            position: absolute;
+            z-index: 2;
+            top: 80px;
+            left: 25px;
+        }
+
+        #sp-img #sp3 {
+            position: absolute;
+            z-index: 4;
+            top: 130px;
+            left: 50px;
+        }
+
+        /**여름 이미지 그룹의 style 설정**/
+        #su-img { position: relative; top: 40px; left: 205px;}
+        #su-img div img { width: 140px; height: 100px;}
+
+        #su-img #su1 {
+            position: absolute;
+            z-index: 1;
+            top: 30px;
+        }
+
+        #su-img #su2 {
+            position: absolute;
+            z-index: 7;
+            top: 80px;
+            left: 40px;
+        }
+
+        #su-img #su3 {
+            position: absolute;
+            z-index: 4;
+            top: 130px;
+            left: 80px;
+        }
+
+        /**가을 이미지 그룹의 style 설정**/
+        #at-img { position: relative; top: 40px; left: 435px;}
+        #at-img div img { width: 140px; height: 100px;}
+
+        #at-img #at1 {
+            position: absolute;
+            z-index: 4;
+            top: 30px;
+        }
+
+        #at-img #at2 {
+            position: absolute;
+            z-index: 1;
+            top: 80px;
+            left: 40px;
+        }
+
+        #at-img #at3 {
+            position: absolute;
+            z-index: 4;
+            top: 130px;
+            left: 80px;
+        }
+
+        /**겨울 이미지 그룹의 style 설정**/
+        #wi-img { position: relative; top: 40px; left: 670px;}
+        #wi-img div img { width: 140px; height: 100px;}
+
+        #wi-img #wi1 {
+            position: absolute;
+            z-index: 4;
+            top: 30px;
+        }
+
+        #wi-img #wi2 {
+            position: absolute;
+            z-index: 3;
+            top: 80px;
+            left: 40px;
+        }
+
+        #wi-img #wi3 {
+            position: absolute;
+            z-index: 2;
+            top: 130px;
+            left: 80px;
+        }
+    </style>
+</head>
+<body>
+    <h2>실습문제 1번</h2>
+    <hr>
+    <div id="season-block">
+        <span class="season" id="spring">봄</span>
+        <span class="season" id="summer">여름</span>
+        <span class="season" id="fall">가을</span>
+        <span class="season" id="winter">겨울</span>
+    </div>
+    <div id="sp-img">
+        <div id="sp1"><img src="./그림/sp1.jpg"></div>
+        <div id="sp2"><img src="./그림/sp2.jpg"></div>
+        <div id="sp3"><img src="./그림/sp3.jpg"></div>
+    </div>
+    <div id="su-img">
+        <div id="su1"><img src="./그림/su1.jpg"></div>
+        <div id="su2"><img src="./그림/su2.jpg"></div>
+        <div id="su3"><img src="./그림/su3.jpg"></div>
+    </div>
+    <div id="at-img">
+        <div id="at1"><img src="./그림/at1.jpg"></div>
+        <div id="at2"><img src="./그림/at2.jpg"></div>
+        <div id="at3"><img src="./그림/at3.jpg"></div>
+    </div>
+    <div id="wi-img">
+        <div id="wi1"><img src="./그림/wi1.jpg"></div>
+        <div id="wi2"><img src="./그림/wi2.jpg"></div>
+        <div id="wi3"><img src="./그림/wi3.jpg"></div>
+    </div>
+</body>
+</html>

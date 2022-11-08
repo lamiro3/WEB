@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /**웹사이트 이용수칙**/
+        /**전체 박스의 테두리 설정**/
+        #rule { border: 2px brown solid; }
+        /**머리말 style 설정**/
+        #title { text-align: center; font-size: 20px; font-weight: bold; background-color: rgb(206, 109, 49); margin: 20px 0px;}
+        /**가로선 색, 두께 설정**/
+        #line { border: 0; height: 10px; background-color: rgba(171, 114, 114, 0.941);}
+        /**이용수칙 리스트의 배경색 설정**/
+        #rule-list { background-color: rgb(255, 238, 217);}
+        /**이용수칙 리스트의 각 행들의 글자 크기 설정**/
+        #rule-list li { font-size: 20px; }
+        /**이용수칙 리스트의 각 행 번호의 style 설정**/
+        #rule-list li .list_n { color: green; font-size: 40px;}
+
+        /**회원 등급**/
+        /**회원 등급 리스트의 좌측 마진 조절하여 위치 조정**/
+        #tier-list { margin-left: -40px; }
+        /**회원 등급 리스트의 각 행의 배경색과 하단 마진 설정**/
+        #tier-list li { background-color: bisque; margin-bottom: 2px; }
+
+        /**이름/이메일/자기소개 입력란**/
+        /**이름 입력란 위에 마우스 포인터가 위치했을 때의 style 설정**/
+        #input #name input:hover {
+            border: 10px white dotted;
+            width: 230px;
+            font-size: larger;
+            background-color: green;
+            color: greenyellow;
+        }
+
+        /**입력란 전체 덩어리의 style 설정**/
+        #input {position: relative; margin-left: 20px; margin-top: 40px; margin-bottom: 10px;}
+        /**이름 입력란 위치 설정**/
+        #input #name {position: absolute; left: 40px;}
+        /**이메일 입력란 위치 설정**/
+        #input #email {position: absolute; left: 32px; top: 70px;}
+        /**자기소개 입력란 위치 설정**/
+        #input #self-i {position: absolute; left: 7px; top: 140px;}
+        /**제출 버튼 위치 설정**/
+        #input #submit {position: absolute; left: 77px; top: 210px;}
+
+    </style>
+</head>
+<body>
+    <h2>실습문제 2번</h2>
+    <hr>
+    <!--웹사이트 이용 수칙-->
+    <div id="rule">
+        <div id="title">*웹사이트 이용 수칙</div>
+        <hr id="line">
+        <ul id="rule-list" style="list-style: none;">
+            <li><span class="list_n">1.</span>도배는 절대절대 금물입니다.</li>
+            <li><span class="list_n">2.</span>외부 홍보 관련 게시물은 작성해서는 안됩니다.</li>
+            <li><span class="list_n">3.</span>바르고 고운말만 사용하여 이용자들간 불화가 없도록 합시다.</li>
+            <li><span class="list_n">4.</span>열심히 활동한 회원은 쉽게 동업할 수 있습니다.</li>
+        </ul>
+    </div>
+    <!--회원 등급 리스트-->
+    <ul id="tier-list" style="list-style: none;">
+        <li><img src="./그림/wi1.jpg" style="width: 1em; height: 1em;"> 초기회원</li>
+        <li><img src="./그림/wi2.jpg" style="width: 1em; height: 1em;"> 열심회원</li>
+        <li><img src="./그림/wi3.jpg" style="width: 1em; height: 1em;"> 고수회원</li>
+        <li><img src="./그림/at1.jpg" style="width: 1em; height: 1em;"> 왕 회원</li>
+    </ul>
+
+
+    <!--이름/이메일/자기소개 입력란-->
+    <div id="input">
+        <div id="name">이름 <input type="name" placeholder="이름입력"></div>
+        <div id="email">Email <input type="email" placeholder="abc@inter.net"></div>
+        <div id="self-i">자기소개 <textarea rows="2" cols="20" placeholder="자기소개를 적어주세요!"></textarea></div>
+        <input id="submit" type="submit" value="submit">
+    </div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /**테이블 전체 덩어리의 style 설정**/
+        .mytable {
+            box-shadow: 0 0 80px rgb(254, 254, 198); 
+            line-height: 1.5; 
+            width: 800px; 
+            margin: auto; 
+            border-collapse: collapse; 
+            margin-top: 30px;
+        }
+
+        /**“제목”, “줄거리” 셀의 style 설정**/
+        thead tr th { 
+            background-color: white; 
+            color: rgb(77, 115, 186); 
+            padding: 10px 0px;
+            border-bottom: 3px navy solid;
+        }
+
+        /**첫 번째 열 – 데이터 셀의 style 설정**/
+        .title {
+            background-color: rgb(248, 248, 248);
+            text-align: center;
+            padding: 45px 45px;
+            width: 50px;
+            height: 35px;
+            font-weight: bold;
+        }
+
+        /**첫 번째 열 – 데이터 셀 위에 마우스 포인터가 위치했을 때의 배경색 설정**/
+        .title:hover {
+            background-color: rgb(230, 248, 242);
+        }
+
+        /**두 번째 열 – 데이터 셀의 style 설정**/
+        .txt {
+            width: 600px;
+            height: 30px;
+            font-size: 19px;
+        }
+
+        /**홀수 번째 두 번째 열 – 데이터 셀의 배경색 bisque로 설정**/
+        tbody tr:nth-child(2n+1) .txt {
+            background-color: bisque;
+        }
+
+        /**짝수 번째 두번째 열 – 데이터 셀의 배경색 rgb(255, 199, 196)로 설정**/
+        tbody tr:nth-child(2n) .txt {
+            background-color: rgb(255, 199, 196);
+        }
+        
+        /**각 데이터 셀의 하단 테두리를 두께 2px, 회색 실선으로 설정**/
+        tbody tr td{
+            border-bottom: 2px gray dashed;
+        }
+
+        /**3행 ~ 5행 2열의 데이터 셀의 overflow 설정**/
+        tbody tr:nth-child(3) .txt {
+            overflow: scroll;
+        }
+
+        tbody tr:nth-child(4) .txt {
+            overflow: hidden;
+        }
+
+        tbody tr:nth-child(5) .txt {
+            overflow: visible;
+        }
+    </style>
+</head>
+<body>
+    <h2>실습문제 3번</h2>
+    <hr>
+    <table class="mytable">
+        <thead>
+            <tr><th>제목</th><th>줄거리</th></tr>
+        </thead>
+        <tbody>
+            <!--
+                첫 번째 열 데이터 셀 클래스 : title
+                두 번째 열 데이터 셀 클래스 : txt
+            -->
+            <tr>
+                <td class="title">미나</td>
+                <td class="txt">
+                    쌍둥이로 태어난 뒤, 어린 나이에 헤어져 한명은 톱가수로
+                    또 한명은 어려운 형편의 내레이터 모델로 엇갈린 길을 걸어
+                    가는 두 자매의 인생유전을 그리는 드라마
+                </td>
+            </tr>
+            <tr>
+                <td class="title">나팔꽃</td>
+                <td class="txt">
+                    젊은이들이 아픔을 겪으면서 성숙해가는 모습을 그린 드라마
+                </td>
+            </tr>
+            <tr>
+                <td class="title">만남</td>
+                <td class="txt">
+                    결혼생활 11년째 된 평범한 주부가 남편의 외도 사실을 알게되고,
+                    이혼 후 찾아온 새로운 사랑 앞에 고민
+                </td>
+            </tr>
+            <tr>
+                <td class="title">삼총사</td>
+                <td class="txt">
+                    인천에서 학창 시절을 같이 보냈지만 성장한 후 각기 다른 길을 걷게
+                    되는 세 친구를 중심으로 정계와 재계의 뒷이야기를 다루는 드라마
+                </td>
+            </tr>
+            <tr>
+                <td class="title">욕망의 불꽃</td>
+                <td class="txt">
+                    한 가족의 이야기를 중심으로 인간의 끝없는 욕망과 파멸을 부르는 탐욕, 권력에 대한 갈구,
+                     부에 대한 동경과 멸시, 애증이 엇갈린 사랑을 그리고 있다. 과연 주인공 가족은 어떤 결말을
+                     맞이할까? 돈 앞에서 그들의 욕망의 끝은 어디까지인가!
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
