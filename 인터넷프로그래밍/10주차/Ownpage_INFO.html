@@ -1,0 +1,84 @@
+<!--Ownpage_INFO.html-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Ko TaeHyeon's Career Film</title>
+    <style>
+        body {
+            background-color: burlywood;
+            color: chocolate;
+            margin-left: 40px;
+            margin-right: 40px;
+            padding-top: 60px;
+        }
+
+        h1 {
+            text-align: center;
+            color: darkred;
+        }
+
+        hr {
+            height: 5px;
+            border: solid darkslategray;
+            background-color: darkslategray
+        }
+
+        span {
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        img {
+            border-radius: 15px;
+            width: 150px;
+            height: 200px;
+        }
+        
+        a {
+            text-decoration: none; /**밑줄 제거**/
+        }
+
+        fieldset {
+            border-color: darkslategray;
+            border-radius: 5px;
+        }
+
+        #fig:hover { /**커서 올려놓을 시 사진 2배 확대**/
+            width: 300px;
+            height: 400px;
+            box-shadow: 0 0 5px black; /**사진 hover시 주위에 그림자 생기게끔 함**/
+            transition-duration: 2s;
+        }
+
+        #info {
+            font-size: 20px;
+            color: black;
+            font-family: "맑은 고딕";
+        }
+    </style>
+    <script>
+    </script>
+</head>
+
+<body>
+    <span>
+        <img id="fig" src="C:\Users\고태현\Pictures\profile.jpg">
+    </span>
+    <fieldset>
+        <legend><h2>Who am I?</h2></legend>
+        <span>Student at Department of Artificial Inteligence Convergence, Dongguk Univ.</span>
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend><h2>INFO</h2></legend>
+        <pre id="info" style="font-weight: bold;">
+☎️ Contact: 010-6654-4076
+📧 E-mail: lamiro3@naver.com
+🧙‍♂️ Github: <a target="screen" href="https://github.com/lamiro3">Click Here!</a> <!--github 링크 a 태그 이용해 삽입-->
+        </pre>
+    </fieldset>
+</body>
+</html>
