@@ -1,40 +1,47 @@
+/*이미지 테두리 색 변화*/
 @keyframes borderColorTransition {
     0% { border-color: salmon;}
     50% { border-color: aquamarine;}
     100% { border-color: royalblue;}
 }
 
+/*뚱이 이미지 hover시 변화*/
 @keyframes ddungHoverAnimation {
     0% { transform: skewX(0deg); border-color: salmon; }
     50% { border-color: aquamarine; }
     100% { transform: skewX(-20deg) rotate(-20deg) scale(2, 2); border-color: royalblue; } 
 }
 
+/*스폰지밥 이미지 active시 변화*/
 @keyframes sponHoverAnimation {
     0% { transform: rotate(0deg); border-color: salmon; }
     50% { border-color: aquamarine; }
     100% { transform: rotate(180deg) scale(2, 2); border-color: royalblue; }
 }
 
+/*class=image인 태그 style 정의*/
 .image {
     width: 200px;
     height: 120px;
 
     border: 5px solid;
 
+    /*이미지 색 변화 애니메이션 적용*/
     animation-name: borderColorTransition;
     animation-duration: 5s;
     animation-iteration-count: infinite;
     margin: 30px 50px;
 }
 
+/*뚱이 이미지 hover시 style*/
 #ddung:hover {
     animation-name: ddungHoverAnimation;
     animation-duration: 2s;
     animation-iteration-count: initial;
 }
 
-#spon:hover {
+/*스폰지밥 이미지 active시 style*/
+#spon:active {
     animation-name: sponHoverAnimation;
     animation-duration: 2s;
     animation-iteration-count: initial;

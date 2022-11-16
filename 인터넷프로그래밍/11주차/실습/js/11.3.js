@@ -21,6 +21,7 @@ var row_6 = document.createElement("div")
 var row_7 = document.createElement("div")
 var row_8 = document.createElement("div")
 
+//row class 정의
 row_1.setAttribute("class", "row")
 row_2.setAttribute("class", "row")
 row_3.setAttribute("class", "row")
@@ -30,6 +31,7 @@ row_6.setAttribute("class", "row")
 row_7.setAttribute("class", "row")
 row_8.setAttribute("class", "row")
 
+//각 row별 수식 계산하는 함수
 function getResult(first, last, formula, tagName, row) {
     row.appendChild(document.createTextNode(first))
     tagName.appendChild(document.createTextNode(eval(formula)))
@@ -38,6 +40,7 @@ function getResult(first, last, formula, tagName, row) {
     GRID.appendChild(row)
 }
 
+//onmouseover event
 function hover(color){
     var rows = document.getElementsByClassName("row")
     for (i = 0; i < rows.length; i++){
@@ -45,6 +48,7 @@ function hover(color){
     }
 }
 
+//onmouseleave event
 function escape(){
     var rows = document.getElementsByClassName("row")
     for (i = 0; i < rows.length; i++){
