@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //format 함수 정의
+        function format(h) { // parameter h = 별의 높이
+            document.write("<h1>기본 별찍기</h1>"); //머리말 삽입
+            document.write("<br>"); // 줄 바꿈
+            document.write("<h4>높이:"+h+"</h4>"); //머리말 삽입
+            document.write("<br>"); // 줄 바꿈
+            document.write("<hr>"); // 가로선 삽입
+        }
+        
+        var height = prompt("별 찍기 프로그램 가동!\n별의 높이 입력:"); // 별 높이 저장
+        var type = prompt("별 모양 정하기.\n 1. 기본 2. 역순"); // 별 모양 저장
+
+        if (type == "1"){ // 기본
+            alert("기본 별찍기를 선택하였습니다..!");
+            format(height); // 기본 format 출력
+
+            //이중 for문 활용
+            for (var i = 0; i<parseInt(height); i++){ //parseInt() 이용해 str -> 숫자로 변환
+                var stars = ""
+                for (var j = 0; j<i+1; j++){
+                    stars += "*"
+                }
+                document.write("<div>"+stars+"</div>");
+            }
+        }
+
+        else { // 역순
+            alert("역순 별찍기를 선택하였습니다..!");
+            format(height); // 기본 format 출력
+
+            for (var i = parseInt(height)-1; i>=0; i--){ //parseInt() 이용해 str -> 숫자로 변환
+                var stars = ""
+                for (var j = 0; j<i+1; j++){
+                    stars += "*"
+                }
+                document.write("<div>"+stars+"</div>");
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

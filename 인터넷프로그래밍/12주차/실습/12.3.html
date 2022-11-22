@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img { /*이미지 좌측 및 상단 마진 설정*/
+            margin-left: 30px;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        // 이미지 위에 마우스 올려놓을 시 실행되는 함수 (이미지 변경)
+        function hoverImg(IMG, isWeekday){
+            if (isWeekday){
+                IMG.setAttribute("src", "./img/neg.png");
+            }
+            else {
+                IMG.setAttribute("src", "./img/pos.jpg");
+            }
+        }
+
+        var click = 1;
+
+        // 이미지를 클릭할 때마다 실행되는 함수 (이미지 너비 변경)
+        function clickImg(IMG){
+            click++;
+            IMG.setAttribute("style", "width: "+(click*100)+"px; height: 90px;");
+        }
+
+        var dType = prompt("월화수목금토일 중 하나를 입력하시오..!!"); // 입력된 요일 저장
+
+        //평일
+        if (dType == "월" || dType == "화" || dType == "수" || dType == "목" || dType == "금"){
+            document.write(dType + "요일은 출근입니다..");
+            document.write("<br>");
+            document.write("<img src='./img/questionmark.png'>");
+            var IMG = document.querySelector("img");
+            IMG.setAttribute("onclick", "clickImg(this)");
+            IMG.setAttribute("style", "width: 100px; height: 90px;");
+            IMG.setAttribute("onmouseover", "hoverImg(this, true)");
+        }
+
+        //주말
+        else {
+            document.write(dType + "요일은 휴일입니다..");
+            document.write("<br>");
+            document.write("<img src='./img/questionmark.png'>");
+            var IMG = document.querySelector("img");
+            IMG.setAttribute("onclick", "clickImg(this)");
+            IMG.setAttribute("style", "width: 100px; height: 90px;");
+            IMG.setAttribute("onmouseover", "hoverImg(this, false)");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

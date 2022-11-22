@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        while (true){
+           var x = prompt("첫번째 수:"); // 첫 번째 수 저장
+           var y = prompt("두번째 수:"); // 두 번째 수 저장
+
+           //isFinite 함수를 사용해 x, y의 숫자 여부 확인
+           //둘 중 하나라도 숫자가 아닐 경우 break문에 의해 반복문에서 탈출
+
+           if (!isFinite(x) || !isFinite(y)){
+            alert("입력값 중 숫자가 아닌 수가 있습니다.");
+            break;
+           }
+
+           var oper = prompt("연산자:"); // 연산자 저장
+           var formula = x + " " + oper + " " + y; // 앞서 저장한 두 수와 연산자 문자열을 병합해 수식 문자열 제작
+           var result = eval(formula); // eval함수를 이용해 수식 연산
+
+           // 반복을 계속 이어기기 위해 각 case 마다 continue문 삽입
+           switch(oper) {
+            case "+" :
+                alert("두 수의 덧셈 :" + result);
+                continue;
+            
+            case "-" :
+                alert("두 수의 뺄셈 :" + result);
+                continue;
+            
+            case "*" :
+                alert("두 수의 곱셈 :" + result);
+                continue;
+            
+            case "/" :
+                alert("두 수의 나눗셈 :" + result);
+                continue;
+           }
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
