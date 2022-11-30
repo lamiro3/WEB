@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>2022 FIFA 카타르 월드컵</h2>
+    <hr>
+</body>
+<script>
+    var fifa = new Object()
+    fifa.country = new Array(); // 국가 프로퍼티 - 배열
+    fifa.player = new Array(); // 선수 프로퍼티 - 배열
+    fifa.rank = new Object(); // 랭킹 - 객체
+
+    fifa.rank.string = new Array(); // 랭킹의 프로퍼티 - 배열
+    fifa.rank.int = new Array();  // 랭킹의 프로퍼티 - 배열
+
+    for (var i = 0; i<4; i++){ // loop 총 4회
+        // 입력 받은 data & 기준으로 쪼개서 배열 형태로 저장
+        var row = prompt("앰퍼샌드(&)로 분리하면서 [국가 대표선수 FIFA랭킹] 순으로 입력.\nex. 아르헨티나&메시&3");
+        var info = row.split("&");
+
+        // 각 프로퍼티에 초기화
+        fifa.country[i] = info[0];
+        fifa.player[i] = info[1];
+        fifa.rank.string[i] = info[2];
+        fifa.rank.int[i] = parseInt(info[2]);
+
+        // 정보 차례로 입력
+        document.write("[국가]: "+fifa.country[i]+"[대표선수]: "+fifa.player[i]+"[FIFA 랭킹]:"+fifa.rank.string[i]+"\n");
+        document.write("<br>"); // 줄바꿈
+    }
+    // 가장 강한/약한 국가의 인덱스 알아내기
+    var S_idx = fifa.rank.string.indexOf(Math.min(...fifa.rank.int).toString());
+    var W_idx = fifa.rank.string.indexOf(Math.max(...fifa.rank.int).toString());
+
+    // 페이지 최하단 부분에 가장 강한/약한 국가 출력
+    document.write("<hr>");
+    document.write("월드컵 H조에서 가장 강한 나라: "+fifa.country[S_idx]);
+    document.write("<br>");
+    document.write("월드컵 H조에서 가장 약한 나라: "+fifa.country[W_idx]);
+</script>
+</html>

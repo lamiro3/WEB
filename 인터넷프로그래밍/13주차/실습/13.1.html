@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>평일 Aqua, 주말 gold</h2>
+    <hr>
+</body>
+<script>
+    week = new Array('일', '월', '화', '수', '목', '금', '토') // 요일 배열 생성
+    var date = new Date() // 날짜 객체 생성
+    var today = week[date.getDay()] // getDay() 메소드가 요일에 해당하는 인덱스 num을 반환하기 때문에 저렇게 작성함
+    var today_date = date.getDate() // getDate() 메소드를 이용해 금일의 날짜 불러옴
+    
+    //평일
+    if (today == "월" || today == "화" || today == "수" || today == "목" || today == "금" ){
+        document.body.style.backgroundColor = "aqua"; // 배경색 aqua로 설정
+    }
+    //주말
+    else {
+        document.body.style.backgroundColor = "gold"; // 배경색 gold로 설정
+    }
+
+    document.write('오늘은 '+today_date+'일, '+today+'요일 입니다!'); // 불러온 날짜, 요일 이용해 출력
+</script>
+</html>

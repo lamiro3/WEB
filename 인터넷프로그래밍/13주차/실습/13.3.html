@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>square 객체 만들기</h2>
+    <br>
+    <hr>
+</body>
+<script>
+    //min ~ max 사이의 임의의 난수 반환
+    function getRandomArbitrary(min, max) {
+        return parseInt(Math.random() * (max - min) + min);
+    }
+    // square 프로토타입
+    function square(width = getRandomArbitrary(10, 100), height = getRandomArbitrary(10, 100), price = 100000){
+        this.width = width;
+        this.height = height;
+        this.price = price;
+        this.area = () => {
+            return this.width*this.height;
+        }
+        this.fix = () => {
+            this.price -= 8000;
+            this.width += 5;
+            this.height += 5;
+        }
+    }
+
+    square1 = new square();
+    square2 = new square();
+
+    document.write("square1 : 가로:"+square1.width+"cm, 세로:"+square1.height+"cm, 자금:"+square1.price+"원");
+    document.write('<br>');
+    document.write("square2 : 가로:"+square2.width+"cm, 세로:"+square2.height+"cm, 자금:"+square2.price+"원");
+    document.write('<br>');
+    document.write('<br>');
+
+    var cnt = 0; // 수리 횟수
+
+    //넓이1 > 넓이2
+    if (square1.area() > square2.area()){
+        while (square1.area() > square2.area()){
+            cnt += 1;
+            document.write("square2의 넓이가 square1의 넓이보다 작아 수리를 진행합니다.");
+            document.write("<br>");
+            square2.fix();
+        }
+        document.write("<br>"); 
+        document.write("[square2 최종 결과]");
+        document.write("<br>");
+        document.write("<br>");
+        document.write(cnt+"번 수리를 진행하였습니다.");
+        document.write("가로:"+square2.width+"cm, 세로:"+square2.height+"cm, 자금:"+square2.price+"원");
+        document.write("<br>");
+        document.write("넓이:"+square2.area());
+    }
+    //넓이1 < 넓이2
+    else {
+        while (square1.area() < square2.area()){
+            cnt += 1;
+            document.write("square1의 넓이가 square2의 넓이보다 작아 수리를 진행합니다.");
+            document.write("<br>");
+            square1.fix();
+        }
+        document.write("<br>"); 
+        document.write("[square1 최종 결과]");
+        document.write("<br>");
+        document.write("<br>");
+        document.write("수리를 종료합니다.");
+        document.write("<br>");
+        document.write(cnt+"번 수리를 진행하였습니다.");
+        document.write("<br>");
+        document.write("가로:"+square1.width+", 세로:"+square1.height+", 자금:"+square1.price+"원");
+        document.write("<br>");
+        document.write("넓이:"+square1.area());
+    }
+</script>
+</html>

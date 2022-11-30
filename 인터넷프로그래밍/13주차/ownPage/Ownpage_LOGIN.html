@@ -1,0 +1,135 @@
+<!--Ownpage_LOGIN.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Ownpage_LOGIN.js"></script>
+    <style>
+        [data-theme="light"] {
+            --main-background: burlywood;
+            --info-background: gainsboro;
+            --title: darkred;
+            --title-shadow: 5px 5px 5px rgb(165, 107, 107); 
+            --bar: darkslategray;
+            --text: black;
+        }
+
+        [data-theme="dark"] {
+            --main-background: #343552;
+            --info-background: rgb(91, 91, 91);
+            --title: chocolate;
+            --title-shadow: 5px 5px 5px rgb(184, 135, 67); 
+            --bar: rgb(205, 205, 81);
+            --text: white;
+        }
+
+        body {
+            background-color: var(--main-background);
+            color: var(--title);
+            margin-left: 40px;
+            margin-right: 40px;
+            padding-top: 60px;
+            font-weight: bold;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--title);
+        }
+
+        hr {
+            height: 5px;
+            border: solid var(--bar);
+            background-color: var(--bar);
+        }
+        fieldset legend { /**fieldset 범례의 style 설정**/
+            color: var(--main-background);
+            text-align: center;
+            border: 3px solid var(--bar);
+            background-color: var(--bar);
+            border-radius: 3px;
+            padding: 5px 8px;
+        }
+
+        fieldset div { /**fieldset 안에 들어갈 text의 색 설정**/
+            color: var(--title);
+        }
+
+        fieldset { /**fieldset의 style 설정**/
+            border-color: var(--bar);
+            border-style: solid;
+            border-radius: 5px;
+            width: 140px;
+            height: 190px;
+            margin: auto;
+        }
+
+        .box { /**LOGIN ~ SIGNUP form간의 margin 설정**/
+            margin-top: 70px;
+        }
+
+        #emailbox { /**email입력란 style 설정**/
+            border: 2px var(--bar) solid;
+            border-radius: 3px;
+        }
+        #pwbox { /**password입력란 style 설정**/
+            border: 2px var(--bar) solid;
+            border-radius: 3px;
+        }
+        .LIFORM_BTN { /**LOGIN/SIGNUP form 버튼 style 설정**/
+            border: 2px var(--bar) solid;
+            border-radius: 3px;
+            font-weight: bold;
+            background-color: var(--main-background);
+            color: var(--text);
+        }
+    </style>
+</head>
+<body>
+    <fieldset id="login">
+        <legend>LOG IN</legend>
+        <!--
+            차례로
+            이메일 입력란 - 값 바뀔 때 마다 저장 및 갱신
+            비밀번호 입력란 - 값 바뀔 때 마다 저장 및 갱신
+            로그인 버튼, 비밀번호 찾기 및 변경 버튼 (오른쪽 정렬)
+        -->
+        <div>E-mail<input onchange="getID(this)" type="email" id="emailbox" placeholder="examples@gmail.com"></div>
+        <div>Password<input onchange="getPW(this)" type="password" id="pwbox" placeholder="your school ID"></div>
+        <div align="right"><input onclick="on_LI_Submit()" id="li_btn" class="LIFORM_BTN" type="submit" value="LOG IN"><input class="LIFORM_BTN" type="button" value="Find/Change your PW"></div>
+    </fieldset>
+    <fieldset id="signup" class="box">
+        <legend>SIGN UP</legend>
+        <!--
+            차례로
+            이메일 입력란 - 값 바뀔 때 마다 저장 및 갱신
+            비밀번호 입력란 - 값 바뀔 때 마다 저장 및 갱신
+            나이 입력란
+            회원가입 버튼(오른쪽 정렬)
+        -->
+        <div>E-mail<input onchange="getID(this)" type="email" id="emailbox" placeholder="examples@gmail.com"></div>
+        <div>Password<input onchange="getPW(this)" type="password" id="pwbox" placeholder="your school ID"></div>
+        <!--
+            최솟값: 20세
+            최댓값: 100세
+            간격: 1세
+
+            datalist에 연결해(?)
+            20, 40, 60, 80, 100세의 option을 넣음으로써 시인성 높임
+        -->
+        <div>AGE<input type="range" min="20" max="100" step="1" list="age">
+            <datalist id="age">
+                <option value="20"></option>
+                <option value="40"></option>
+                <option value="60"></option>
+                <option value="80"></option>
+                <option value="100"></option>
+            </datalist>
+        </div>
+        <div align="right"><input onclick="on_SU_Submit()" id="su_btn" class="LIFORM_BTN" type="submit" value="SIGN UP"></div>
+    </fieldset>
+</body>
+</html>

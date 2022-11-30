@@ -1,0 +1,117 @@
+<!--Ownpage_INFO.html-->
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="profile">
+        <img id="fig" onmouseover="hoverImg()" onmouseleave="escapeImg()" src="C:\Users\고태현\Pictures\profile.jpg">
+    </div>
+    <fieldset>
+        <legend><h2>Who am I?</h2></legend>
+        <span>Student at Department of Artificial Inteligence Convergence, Dongguk Univ.</span>
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend><h2>INFO</h2></legend>
+        <pre id="info" style="font-weight: bold;">
+☎️ Contact: 010-6654-4076
+📧 E-mail: lamiro3@naver.com
+🧙‍♂️ Github: <a target="screen" href="https://github.com/lamiro3">Click Here!</a> <!--github 링크 a 태그 이용해 삽입-->
+        </pre>
+    </fieldset>
+</body>
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Ko TaeHyeon's Career Film</title>
+    <style>
+        [data-theme="light"] {
+            --main-background: burlywood;
+            --info-background: gainsboro;
+            --title: darkred;
+            --title-shadow: 5px 5px 5px rgb(165, 107, 107); 
+            --bar: darkslategray;
+            --text: black;
+        }
+
+        [data-theme="dark"] {
+            --main-background: #343552;
+            --info-background: rgb(91, 91, 91);
+            --title: chocolate;
+            --title-shadow: 5px 5px 5px rgb(184, 135, 67); 
+            --bar: rgb(205, 205, 81);
+            --text: white;
+        }
+
+        body {
+            background-color: var(--main-background);
+            color: chocolate;
+            margin-left: 40px;
+            margin-right: 40px;
+            padding-top: 60px;
+        }
+
+        h1 {
+            text-align: center;
+            color: darkred;
+        }
+
+        hr {
+            height: 5px;
+            border: solid var(--bar);
+            background-color: var(--bar);
+        }
+
+        span {
+            color: var(--text);
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        img {
+            border-radius: 15px;
+            width: 150px;
+            height: 200px;
+        }
+        
+        a {
+            text-decoration: none; /**밑줄 제거**/
+            color: var(--text);
+        }
+
+        fieldset {
+            border-color: var(--bar);
+            border-radius: 5px;
+        }
+
+        #fig:hover { /**커서 올려놓을 시 사진 2배 확대**/
+            width: 300px;
+            height: 400px;
+            box-shadow: 0 0 5px black; /**사진 hover시 주위에 그림자 생기게끔 함**/
+            transition-duration: 2s;
+        }
+
+        #info {
+            font-size: 20px;
+            color: var(--text);
+            font-family: "맑은 고딕";
+        }
+
+        #profile {
+            position: relative;
+        }
+        
+        /*프로필 정보 style 정의*/
+        #profile_info {
+            position: absolute;
+            left: 370px;
+            width: 400px;
+            height: 300px;
+            background-color:var(--info-background);
+            color: var(--text);
+            padding: 10px 10px;
+            border: 3px black solid;
+            border-radius: 7px;
+        }
+    </style>
+    <script src="./Ownpage_INFO.js"></script> <!--외부 경로에서 JS 파일 import-->
+</head>
+</html>

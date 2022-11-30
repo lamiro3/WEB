@@ -1,0 +1,97 @@
+<!--Ownpage.html-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Ko TaeHyeon's Career Film</title>
+    <style>
+        /*light, dark테마의 style 변수 선언*/
+        [data-theme="light"] {
+            --main-background: burlywood;
+            --title: darkred;
+            --title-shadow: 5px 5px 5px rgb(165, 107, 107); 
+            --bar: darkslategray;
+        }
+
+        [data-theme="dark"] {
+            --main-background: #343552;
+            --title: chocolate;
+            --title-shadow: 5px 5px 5px rgb(184, 135, 67); 
+            --bar: rgb(205, 205, 81);
+        }
+
+        body {
+            background-color: var(--main-background);
+            color: var(--title);
+            margin-left: 40px;
+            margin-right: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--title);
+            text-shadow: var(--title-shadow);
+        }
+
+        hr {
+            height: 5px;
+            border: solid var(--bar);
+            background-color: var(--bar);
+            box-shadow: 0 0 5px var(--bar); /**상단 바 가로선 그림자 적용**/
+        }
+
+        .menu { /**상단 bar style**/
+            background-color: transparent;
+            color: var(--bar);
+            font-weight: bold;
+            border: 0;
+            padding: auto;
+            
+        }
+
+        .menu:hover { /**상단 bar의 버튼 위에 마우스 커서가 올려져있을때의 이벤트**/
+            color: var(--title);
+            font-size: larger; /**글자 크기 확대**/
+            transition-duration: 1s;
+        }
+
+        #window { /**iframe을 감쌀, 앞으로 필름 모양처럼 구현 될 흑색 바탕의 사각형**/
+            background-color: black;
+            border-radius: 10px;
+            box-shadow: 0px 10px gray;
+            width: 1100px;
+            height: 700px;
+            margin-top: 20px;
+            padding-top: 100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #menus {
+            display: flex;
+        }
+
+        #CLOCK {
+            margin-left: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Ko TaeHyeon</h1>
+    <hr>
+    <div id="menus" align="left">
+        <button id="INFO" class="menu" onclick="Click.INFO_click()">INFO</button> <!--onclick event 적용-->
+        <button id="SCH" class="menu" onclick="Click.SCH_click()">SCHEDULE</button> <!--onclick event 적용-->
+        <button id="PROJ" class="menu" onclick="Click.PROJ_click()">PROJECT</button> <!--onclick event 적용-->
+        <button id="LOGIN "class="menu" onclick="Click.LOGIN_click()">LOG IN</button> <!--onclick event 적용-->
+        <div id="CLOCK" class="menu"></div>
+    </div>
+    <div id="window">
+        <!--기본값으로 INFO가 iframe에 출력되도록 함-->
+        <iframe id="screen" style="border: none; border-radius: 10px;" src="Ownpage_INFO.html" name="screen" width="900" height="600"></iframe>
+    </div>
+</body>
+<script src="./Ownpage.js">
+</script>
+</html>
