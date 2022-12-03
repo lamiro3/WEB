@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .sen {
+            font-size: 15px;
+        }
+    </style>
+    <script>
+        var cnt1 = 0;
+        var cnt2 = 0;
+
+        function onBorderBtnClick(){
+            cnt1+=1;
+            var mySpan = document.querySelector("#mySpan");
+            if (cnt1 % 2 == 1)
+                mySpan.style.border = '2px aqua dashed';
+            else
+                mySpan.style.border = 'none';
+        }
+
+        function getNumOfTag(tagName) {
+            var target = document.getElementsByTagName(tagName);
+            alert('<'+tagName+'> 태그의 개수는 '+target.length);
+        }
+
+        var fontSizeUp = () => {
+            cnt2+=1;
+            var sen = document.querySelectorAll('.sen')
+            for (var i=0; i < sen.length; i++)
+                sen[i].style.fontSize = (15+(2*cnt2)) + 'px';
+        }
+    </script>
+</head>
+<body>
+    <h2 style="display: inline-block;">자바스크립트란?</h2>
+    <button onclick="onBorderBtnClick()">border</button>
+    <button onclick="getNumOfTag('p')">p</button>
+    <button onclick="getNumOfTag('hr')">hr</button>
+    <button onclick="fontSizeUp()">확대</button>
+    <hr>
+    <p class="sen">
+        자바스크립트는 웹 프로그래밍 언어로서 웹 페이지를 동적 변경시킬 수 있다.
+    </p>
+    <p class="sen">
+        <span id="mySpan">C언어</span>를 아는 사용자는 빠르게 학습할 수 있다.
+    </p>
+    <p class="sen">
+        자바스크립트는 웹 프로그래밍 언어로서 웹 페이지를 동적 변경시킬 수 있다.
+    </p>
+    <hr>
+</body>
+</html>
