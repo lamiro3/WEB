@@ -11,27 +11,29 @@
         }
     </style>
     <script>
-        var cnt1 = 0;
-        var cnt2 = 0;
+        var cnt1 = 0; /*border 버튼 클릭 횟수*/
+        var cnt2 = 0; /*확대 버튼 클릭 횟수*/
 
-        function onBorderBtnClick(){
+        function onBorderBtnClick(){ // border 버튼 눌렀을 때
             cnt1+=1;
             var mySpan = document.querySelector("#mySpan");
-            if (cnt1 % 2 == 1)
+            if (cnt1 % 2 == 1) // 누른 횟수가 홀수일 때 -> 테두리 생성
                 mySpan.style.border = '2px aqua dashed';
-            else
+            else // 누른 횟수가 짝수일 때 테두리 제거
                 mySpan.style.border = 'none';
         }
 
-        function getNumOfTag(tagName) {
+        function getNumOfTag(tagName) { // p, hr 버튼 눌렀을 때
+            // 범용적으로 사용할 수 있도록 셀 태그의 이름을 매개변수로 설정
             var target = document.getElementsByTagName(tagName);
             alert('<'+tagName+'> 태그의 개수는 '+target.length);
         }
 
-        var fontSizeUp = () => {
+        var fontSizeUp = () => { // 확대 버튼을 눌렀을 때
             cnt2+=1;
             var sen = document.querySelectorAll('.sen')
             for (var i=0; i < sen.length; i++)
+                // 모든 문장들의 크기를 원래 크기로부터 2*누른 횟수px 만큼 증가
                 sen[i].style.fontSize = (15+(2*cnt2)) + 'px';
         }
     </script>
