@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "첫 번째 글",
+    "summary": "로컬 JSON에서 불러온 글",
+    "createdAt": "2026-01-01",
+    "tags": ["React", "Local"]
+  },
+  {
+    "id": 2,
+    "title": "styled-components",
+    "summary": "CSS-in-JS 연습 중",
+    "createdAt": "2026-01-02",
+    "tags": ["CSS"]
+  },
+  {
+    "id": 3,
+    "title": "세 번째 글",
+    "summary": "typescript 연습 중",
+    "createdAt": "2026-01-24",
+    "tags": ["Typescript"]
+  }
+]
