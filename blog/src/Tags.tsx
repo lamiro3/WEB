@@ -1,9 +1,15 @@
-import { useEffect, useState } from "react";    
+import React, { useEffect, useState } from "react";    
 import styled, { keyframes } from "styled-components";
 
 interface Tag {
     id: number,
     name: string;
+}
+
+interface TagsProps {
+  selectedTags: string[];
+  onSelectedTags: React.Dispatch<React.SetStateAction<string[]>>;
+  // Hooks event 발생 시 state update에 활용되는 함수 유형 => React.Dispatch
 }
 
 const TagHoverAnimation = keyframes`
@@ -28,8 +34,11 @@ const TagNotHoverAnimation = keyframes`
   }
 `;
 
-const Tag = styled.div`
-  background-color: mediumspringgreen;
+const Tag = styled.div<{$isClicked: boolean}>`
+  // 
+  background-color: ${({$isClicked}) => 
+    $isClicked ? "darkorange" : "mediumspringgreen"};
+  color: ${({$isClicked}) => $isClicked ? "white" : "black"};
 
   border: 0.1rem, solid, black;
   border-radius: 0.5rem;
@@ -46,12 +55,12 @@ const Tag = styled.div`
     color: white;
   }
 
-  &:not(:hover) {
+  /* &:not(:hover) {
     animation: ${TagNotHoverAnimation} 0.5s;
-  }
+  } */
 `;
 
-function Tags(){
+function Tags({ selectedTags, onSelectedTags } : TagsProps){
     const [tags, setTags] = useState<Tag[]>([]);
 
     useEffect(() => {
@@ -61,8 +70,23 @@ function Tags(){
         .catch(err => console.error(err));
     }, []);
 
-    return (<>
-    {tags.map(tag => (<Tag key={tag.id}>{tag.name}</Tag>))}
+    const selectedTag = (tagName:string) => {
+      // 선택한 tag 목록에 현 tag가 포함되어 있다면 
+      onSelectedTags(stags => 
+        stags.includes(tagName)
+        ? stags.filter(t => t !== tagName) // true: 목록에서 해당 tag 삭제 <toggle event 구현하기 위해>
+        : [...stags, tagName]); // false: 목록에 해당 tag 추가
+    }
+
+    return (
+    <>
+      {tags.map(tag => (
+        <Tag key={tag.id}
+            onClick={() => selectedTag(tag.name)}
+            $isClicked={selectedTags.includes(tag.name)}>
+          {tag.name}
+        </Tag>
+      ))}
     </>);
 }
 

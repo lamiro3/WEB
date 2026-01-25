@@ -9,6 +9,10 @@ interface Post {
   tags: string[];
 }
 
+interface ContentsProps {
+  selectedTags: string[];
+}
+
 const TagHoverAnimation = keyframes`
   0% {
     background-color: mediumspringgreen;
@@ -36,16 +40,20 @@ const Body = styled.div`
 
   margin: 0.6rem;
 
-  border: 0.1rem, solid, black;
+  border: 0.1rem solid black;
   border-radius: 0.6rem;
 
   padding-bottom: 0.4rem;
+
+  box-shadow: 0.1rem 0.1rem 0.1rem 0.05rem black;
 `;
 
 const Title = styled.h2`
-  padding-top: 0.3rem;
-  padding-left: 0.4rem;
+  padding: 0.3rem 0 0.2rem 0.4rem;
+
   font-size: clamp(1.1rem, 2vw, 1.25rem);
+
+  border-bottom: 0.1rem solid black;
 `;
 
 const Summary = styled.div`
@@ -69,8 +77,10 @@ const TagContainer = styled.div`
   gap: 0.3rem;
 `;
 
-const Tag = styled.div`
-  background-color: mediumspringgreen;
+const Tag = styled.div<{$active: boolean}>`
+  background-color: ${({$active}) => 
+    $active ? "darkorange" : "mediumspringgreen"};
+  color: ${({$active}) => $active ? "white" : "black"};
 
   border: 0.1rem, solid, black;
   border-radius: 0.5rem;
@@ -92,32 +102,31 @@ const Tag = styled.div`
   }
 `;
 
-function Contents(){
+function Contents({selectedTags}: ContentsProps){
     const [contents, setContents] = useState<Post[]>([]);
-
 
     useEffect(() => {
       fetch("/data/contents.json")
       .then(res => res.json()) 
       .then(data => setContents(data))
       .catch(err => console.error(err));
+    }, []); // 대괄호 없으면 렌더링할 때마다 content 무한 복붙됨
 
-      // fetch("/data/tags.json")
-
-    }, []);
-
+    // 선택한 tag들만 골라내기(필터링)
+    const filteredContents = selectedTags
+    ? contents.filter(post => selectedTags.every(tag => post.tags.includes(tag))) : contents;
 
     return (<>
     {
-      contents.map(post => (
+      filteredContents.map(post => (
         <Body key={post.id}>
-          <Title>{post.title}</Title>
+          <Title>{"> " + post.title}</Title>
           <Summary>{post.summary}</Summary>
           <Date>{post.createdAt}</Date>
           
           <TagContainer>
             {post.tags.map(tag => (
-              <Tag key={tag}>{tag}</Tag>
+              <Tag key={tag} $active={selectedTags.includes(tag)}>{tag}</Tag>
             ))}
           </TagContainer>
         </Body>
