@@ -2,9 +2,16 @@ import React, { useState } from 'react';
 import styled from "styled-components";
 import Contents from "./Contents";
 import Tags from  "./Tags";
+import Search from "./Search";
+
+/* APP.tsx는 전체 레이아웃을 관리하는 컴포넌트*/
+
+const BG = styled.div`
+  background-color: #94a3b8;
+`;
 
 const Head = styled.div`
-  background-color: white;
+  background-color: #e2e8f0;
   display: flex;
 
   padding: 10px;
@@ -23,37 +30,11 @@ const BlogName = styled.h1`
   margin:auto;
 `;
 
-/* Search */
-
-const Search = styled.div`
-  background-color: white;
-
-  border-bottom: 0.1rem solid black;
-
-  display: flex;
-  padding: 10px;
-  height: 30px;
-  width: 100%;
-
-  align-items: center;
-
-  position: fixed;
-  top: 40px;
-  left: 0;
-  z-index: 1000;
-`;
-
-const SearchBox = styled.input.attrs({required: true, placeholder: "Search"})`
-  width: 50rem;
-  height: 2rem;
-  margin: 0 auto;
-  border-radius: 10px;
-`;
-
 /* Body */
 
 const Body = styled.div`
-  background-color: cornflowerblue;
+  background-color: #94a3b8;
+
   display: flex;
 
   padding: 10px;
@@ -88,9 +69,44 @@ const Menu = styled.div`
   border: 0.1rem solid black;
   border-radius: 0.6rem;
 
-  padding: 0.5rem;
+  padding: 0.6rem 0.5rem;
+
+  box-shadow: 0.1rem 0.1rem 0.1rem 0.05rem black;
+
+  & > ul  > li {
+    list-style-type: none;
+    margin: 0.3rem 0;
+  }
 `;
 
+const MenuList = styled.ul`
+  padding: 0;
+  margin: 0.3rem 0 0 0;
+`;
+
+const MenuItem = styled.li`
+  list-style-type: none;
+  padding: 0.45rem 0.45rem;
+
+  font-size: clamp(0.85rem, 1.2vw, 1rem); // 최소 선호 최대 크기
+  line-height: 1.4;
+  
+  border-radius: 0.4rem;
+
+  cursor: pointer;
+
+  /* 텍스트가 길어질 때 말줄임표 처리 */
+  white-space : nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  transition: background-color 0.2s ease, transform 0.15s ease;
+    
+  &:hover {
+    background-color: #e5e7eb;
+    transform: translateX(2px); // 마우스 올렸을 때 약간 오른쪽으로 이동
+  }
+`;
 /* Tag */
 
 const SubTitle = styled.h3`
@@ -107,6 +123,8 @@ const Taglist = styled.div`
   border-radius: 0.6rem;
 
   padding: 0.5rem;
+
+  box-shadow: 0.1rem 0.1rem 0.1rem 0.05rem black;
 `;
 
 const TagContainer = styled.div`
@@ -131,26 +149,26 @@ const ContentList = styled.div`
 function App() {
   // Tags ~ 선택한 태그들 : selectedTags
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [serachedTerm, setSearchedTerm] = useState<string>("");
 
-  return <div>
+  return <BG>
     <Head>
-      <BlogName>Taehyeon's lab ⚗️</BlogName>
+      <BlogName>Taehyeon's Blog</BlogName>
     </Head>
 
-    <Search>
-        <SearchBox />
-    </Search>
+    <Search searchedTerm = {serachedTerm}
+            onSearchedTerm = {setSearchedTerm} />
 
     <Body>
       <SideBar>
         <Menu>
-        <SubTitle>Menu</SubTitle>
-        <ul>
-          <li>Profile</li>
-          <li>Github</li>
-          <li>solved.ac</li>
-        </ul>
+          <SubTitle>Menu</SubTitle>
+          <MenuList>
+            <MenuItem>About Me</MenuItem>
+            <MenuItem>Log in</MenuItem>
+          </MenuList>
       </Menu>
+
       <Taglist>
         <SubTitle>Tags</SubTitle>
         <TagContainer>
@@ -159,11 +177,12 @@ function App() {
         </TagContainer>
       </Taglist>
       </SideBar>
+
       <ContentList>
-        <Contents selectedTags = {selectedTags}/>
+        <Contents selectedTags = {selectedTags} searchedTerm = {serachedTerm} />
       </ContentList>
     </Body>
-  </div>;
+  </BG>;
 }
 
 export default App;

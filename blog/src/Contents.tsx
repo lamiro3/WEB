@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";    
 import styled, {keyframes} from "styled-components";
 
+/* Contents.tsx는 포스트 목록(태그 및 검색 기반 필터링)을 보여주는 컴포넌트 */
+
 interface Post {
   id: number,
   title: string,
@@ -11,6 +13,25 @@ interface Post {
 
 interface ContentsProps {
   selectedTags: string[];
+  searchedTerm: string;
+}
+
+// 검색어 하이라이트 함수
+function highlightText(text: string, term: string){
+  // 검색란 비어있을 땐 hightlight 처리 X
+  if(!term) return text;
+
+  const start = text.search(term);
+  if(start === -1) return text;
+
+  const end = start + term.length;
+
+  console.log("Highlighting:", text, term, start, end);
+
+  return <>{text.substring(0, start)}
+        <Matched>{text.substring(start, end)}</Matched>
+        {text.substring(end)}
+        </>;
 }
 
 const TagHoverAnimation = keyframes`
@@ -35,6 +56,14 @@ const TagNotHoverAnimation = keyframes`
   }
 `;
 
+const NotFound = styled.div`
+  font-size: 10rem;
+  font-weight: bold;
+
+  text-align: center;
+  margin-top: 10rem;
+`;
+
 const Body = styled.div`
   background-color: white;
 
@@ -46,6 +75,13 @@ const Body = styled.div`
   padding-bottom: 0.4rem;
 
   box-shadow: 0.1rem 0.1rem 0.1rem 0.05rem black;
+
+  transition: background-color 0.2s ease, transform 0.3s ease;
+  
+  &:hover {
+    background-color: #e5e7eb;
+    transform: translateX(4px); // 마우스 올렸을 때 약간 오른쪽으로 이동
+  }
 `;
 
 const Title = styled.h2`
@@ -63,9 +99,21 @@ const Summary = styled.div`
 `;
 
 const Date = styled.div`
-  font-size: 0.95rem;
-  padding-left: 0.6rem;
+  font-size: 0.8rem;
+
+  margin: 0.3rem 0.4rem;
+  padding: 0.15rem 0.4rem;
+
+  width: fit-content;
+  height: fit-content;
+
   line-height: 1.5;
+
+  color: white;
+  background-color: #ff5555;
+
+  border: 0.1rem, solid, black;
+  border-radius: 0.5rem;
 `;
 
 const TagContainer = styled.div`
@@ -75,6 +123,16 @@ const TagContainer = styled.div`
 
   padding: 0.3rem 0.4rem;
   gap: 0.3rem;
+`;
+
+// 하이라이트된 검색어 스타일
+const Matched = styled.span`
+  background-color: yellow;
+  border: 0.1rem solid black;
+  border-radius: 0.3rem;
+
+  color: blue;
+  font-weight: bold;
 `;
 
 const Tag = styled.div<{$active: boolean}>`
@@ -102,7 +160,7 @@ const Tag = styled.div<{$active: boolean}>`
   }
 `;
 
-function Contents({selectedTags}: ContentsProps){
+function Contents({selectedTags, searchedTerm}: ContentsProps){
     const [contents, setContents] = useState<Post[]>([]);
 
     useEffect(() => {
@@ -116,12 +174,20 @@ function Contents({selectedTags}: ContentsProps){
     const filteredContents = selectedTags
     ? contents.filter(post => selectedTags.every(tag => post.tags.includes(tag))) : contents;
 
+    // 검색어 필터링(앞서 선택한 tag들 필터링된 결과에서 다시 검색어로 필터링) + <추후에 contents에 "내용"도 추가할 예정이지만> 임시방편으로 title과 summary에서만 검색
+    const searchedContents = searchedTerm
+    ? filteredContents.filter(post => post.title.includes(searchedTerm) || post.summary.includes(searchedTerm))
+    : filteredContents;
+
     return (<>
     {
-      filteredContents.map(post => (
+      searchedContents.length === 0 ?
+      <NotFound>Not Found</NotFound>
+      : searchedContents.map(post => (
         <Body key={post.id}>
-          <Title>{"> " + post.title}</Title>
-          <Summary>{post.summary}</Summary>
+          
+          <Title>{"> "}{highlightText(post.title, searchedTerm)}</Title>
+          <Summary>{highlightText(post.summary, searchedTerm)}{"..."}</Summary>
           <Date>{post.createdAt}</Date>
           
           <TagContainer>

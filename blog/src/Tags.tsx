@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";    
 import styled, { keyframes } from "styled-components";
 
+/* Tags.tsx는 태그 목록을 보여주고 태그 필터링을 하는 컴포넌트 */
 interface Tag {
     id: number,
     name: string;
@@ -43,7 +44,7 @@ const Tag = styled.div<{$isClicked: boolean}>`
   border: 0.1rem, solid, black;
   border-radius: 0.5rem;
 
-  font-size: 0.8rem;
+  font-size: clamp(0.4rem, 1.2vw, 0.8rem);
   text-align: center;
 
   padding: 0.15rem 0.4rem;
@@ -54,10 +55,6 @@ const Tag = styled.div<{$isClicked: boolean}>`
     background-color: darkorange;
     color: white;
   }
-
-  /* &:not(:hover) {
-    animation: ${TagNotHoverAnimation} 0.5s;
-  } */
 `;
 
 function Tags({ selectedTags, onSelectedTags } : TagsProps){
