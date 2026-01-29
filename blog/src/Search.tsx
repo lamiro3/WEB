@@ -41,7 +41,6 @@ function Search({searchedTerm, onSearchedTerm}: SearchProps) {
     };
 
     useEffect(() => {
-        console.log("Search Term:", searchTerm);
         onSearchedTerm(searchTerm); // props는 읽기 전용이므로 반드시 이렇게 콜백 함수를 통해 부모 컴포넌트로 전달해야 함
     }, [searchTerm])
 
