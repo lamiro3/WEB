@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";    
 import styled, {keyframes} from "styled-components";
+import { Tag } from "./Tags";
 
 /* Contents.tsx는 포스트 목록(태그 및 검색 기반 필터링)을 보여주는 컴포넌트 */
 
@@ -33,28 +34,6 @@ function highlightText(text: string, term: string){
         {text.substring(end)}
         </>;
 }
-
-const TagHoverAnimation = keyframes`
-  0% {
-    background-color: mediumspringgreen;
-    color: black;
-  }
-  100% {
-    background-color: darkorange;
-    color: white;
-  }
-`;
-
-const TagNotHoverAnimation = keyframes`
-  100% {
-    background-color: mediumspringgreen;
-    color: black;
-  }
-  0% {
-    background-color: darkorange;
-    color: white;
-  }
-`;
 
 const NotFound = styled.div`
   font-size: 10rem;
@@ -135,31 +114,6 @@ const Matched = styled.span`
   font-weight: bold;
 `;
 
-const Tag = styled.div<{$active: boolean}>`
-  background-color: ${({$active}) => 
-    $active ? "darkorange" : "mediumspringgreen"};
-  color: ${({$active}) => $active ? "white" : "black"};
-
-  border: 0.1rem, solid, black;
-  border-radius: 0.5rem;
-
-  font-size: 0.8rem;
-  text-align: center;
-
-  padding: 0.15rem 0.4rem;
-  white-space: nowrap;
-
-  &:hover {
-    animation: ${TagHoverAnimation} 0.5s;
-    background-color: darkorange;
-    color: white;
-  }
-
-  &:not(:hover) {
-    animation: ${TagNotHoverAnimation} 0.5s;
-  }
-`;
-
 function Contents({selectedTags, searchedTerm}: ContentsProps){
     const [contents, setContents] = useState<Post[]>([]);
 
@@ -192,7 +146,7 @@ function Contents({selectedTags, searchedTerm}: ContentsProps){
           
           <TagContainer>
             {post.tags.map(tag => (
-              <Tag key={tag} $active={selectedTags.includes(tag)}>{tag}</Tag>
+              <Tag key={tag} $selected={selectedTags.includes(tag)}>{tag}</Tag>
             ))}
           </TagContainer>
         </Body>

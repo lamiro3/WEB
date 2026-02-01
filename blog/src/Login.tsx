@@ -1,11 +1,19 @@
-import styled, { keyframes } from "styled-components";
-import { useState, useEffect } from "react";
+import styled from "styled-components";
+import { useState } from "react";
+import { login } from "./api/auth";
+import { useNavigate } from "react-router-dom";
 
 /* Login.tsx는 로그인 폼을 보여주는 컴포넌트 */
 
-interface AccountProps {
-    username: string;
-    password: string;  
+export const isLoggedIn = () => {
+    return !!localStorage.getItem("accessToken");
+};
+
+export const LogOut = () => {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+    alert("Log Out Done")
+    window.location.href = "/";
 };
 
 const Body = styled.div`
@@ -112,9 +120,10 @@ const Btn = styled.button`
 `;
 
 function Login() {
+    const navigate  = useNavigate();
+
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
-    const [accounts, setAccounts] = useState<AccountProps[]>([]);
 
     const onChangeUserName = (e:React.ChangeEvent<HTMLInputElement>) => {
         setUsername(e.target.value);
@@ -124,22 +133,24 @@ function Login() {
         setPassword(e.target.value);
     };
 
-    useEffect(() => {
-        fetch('/data/accounts.json')
-        .then(res => res.json())
-        .then(data => setAccounts(data))
-        .catch(err => console.error(err));
-    });
+    const handleLogin = async () => {
+        try {
+            const data = await login(username, password);
 
-    useEffect(() => {
-        console.log("Username:", username);
-        console.log("Password:", password);
-    }, [username, password]);
+            localStorage.setItem('accessToken', data.accessToken);
+            localStorage.setItem('refreshToken', data.refreshToken);
 
-    const onSubmit = () => {
-        const isThere = accounts.find(acc => acc.username === username && acc.password === password);
-        console.log(isThere ? "Login successful" : "Login failed");
+            navigate("/");
+
+        } catch (error){
+            alert("Login failed");
+        }
     };
+
+    const activeEnter = (e:React.KeyboardEvent) => {
+        if (e.code !== "Enter") return;
+        handleLogin();
+    }
 
     return (<Body>
         <Box>
@@ -155,9 +166,10 @@ function Login() {
                 </Username>
                 <Password>
                     <div>Password</div>
-                    <Enter type="password" onChange={onChangePassword} />
+                    <Enter type="password" onChange={onChangePassword} onKeyDown={activeEnter}/>
                 </Password>
-                <Btn type="submit" onClick={onSubmit}>Log In</Btn>
+                <Btn type="button" 
+                    onClick={handleLogin}>Log In</Btn>
             </Form>
         </Box>
     </Body>);

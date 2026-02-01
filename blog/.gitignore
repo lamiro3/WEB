@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# JWT secret key, root address
+/src/server/.env
+.env

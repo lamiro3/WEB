@@ -6,17 +6,17 @@ interface Tag {
     id: number,
     name: string;
 }
-
 interface TagsProps {
   selectedTags: string[];
   onSelectedTags: React.Dispatch<React.SetStateAction<string[]>>;
   // Hooks event 발생 시 state update에 활용되는 함수 유형 => React.Dispatch
+  // ?: Optional을 의미함
 }
 
-const TagHoverAnimation = keyframes`
+export const TagHoverAnimation = keyframes<{$searched:boolean}>`
   0% {
-    background-color: mediumspringgreen;
-    color: black;
+    background-color: ${({$searched}) => ($searched ? "#ef3d5b" : "mediumspringgreen")};
+    color: ${({$searched}) => ($searched ? "white" : "black")};
   }
   100% {
     background-color: darkorange;
@@ -24,10 +24,10 @@ const TagHoverAnimation = keyframes`
   }
 `;
 
-const TagNotHoverAnimation = keyframes`
+export const TagNotHoverAnimation = keyframes<{$searched:boolean}>`
   100% {
-    background-color: mediumspringgreen;
-    color: black;
+    background-color: ${({$searched}) => ($searched ? "#ef3d5b" : "mediumspringgreen")};
+    color: ${({$searched}) => ($searched ? "white" : "black")};
   }
   0% {
     background-color: darkorange;
@@ -35,11 +35,11 @@ const TagNotHoverAnimation = keyframes`
   }
 `;
 
-const Tag = styled.div<{$isClicked: boolean}>`
+export const Tag = styled.div<{$selected?: boolean, $searched?: boolean}>`
   // 
-  background-color: ${({$isClicked}) => 
-    $isClicked ? "darkorange" : "mediumspringgreen"};
-  color: ${({$isClicked}) => $isClicked ? "white" : "black"};
+  background-color: ${({$selected, $searched}) => 
+    $selected ? "darkorange" : ($searched ? "#ef3d5b" : "mediumspringgreen")};
+  color: ${({$selected, $searched}) => $selected ? "white" : ($searched ? "white" : "black")};
 
   border: 0.1rem, solid, black;
   border-radius: 0.5rem;
@@ -54,6 +54,10 @@ const Tag = styled.div<{$isClicked: boolean}>`
     animation: ${TagHoverAnimation} 0.5s;
     background-color: darkorange;
     color: white;
+  }
+
+  &:not(:hover) {
+    animation: ${TagNotHoverAnimation} 0.5s;
   }
 `;
 
@@ -80,7 +84,7 @@ function Tags({ selectedTags, onSelectedTags } : TagsProps){
       {tags.map(tag => (
         <Tag key={tag.id}
             onClick={() => selectedTag(tag.name)}
-            $isClicked={selectedTags.includes(tag.name)}>
+            $selected={selectedTags.includes(tag.name)}>
           {tag.name}
         </Tag>
       ))}

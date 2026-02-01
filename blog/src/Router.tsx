@@ -1,14 +1,19 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate} from "react-router-dom";
 import Home from "./Home";
-import Login from "./Login";
+import Login, { isLoggedIn } from "./Login";
+import Writing from "./Writing";
 
 const Router = () => {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/Login" element={<Login />} />
+            <Route 
+                path="/login" 
+                element={isLoggedIn() ? <Navigate to="/" /> : <Login />} 
+            />
+            <Route path="/writing" element={<Writing />} />
         </Routes>
-    );  
+    );
 }
 
 export default Router;

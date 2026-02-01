@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Contents from "./Contents";
 import Tags from  "./Tags";
 import Search from "./Search";
+import { isLoggedIn, LogOut } from './Login';
 
 /* APP.tsx는 전체 레이아웃을 관리하는 컴포넌트*/
 
@@ -11,7 +12,7 @@ const BG = styled.div`
   background-color: #94a3b8;
 `;
 
-const Head = styled.div`
+export const Head = styled.div`
   background-color: #e2e8f0;
   display: flex;
 
@@ -25,7 +26,7 @@ const Head = styled.div`
   z-index: 1000; // stack 높이라고 생각하면 됨
 `;
 
-const BlogName = styled.h1`
+export const BlogName = styled.h1`
   display: inline-block;
   font-size: 25px;
   margin:auto;
@@ -108,6 +109,7 @@ const MenuItem = styled.li`
     transform: translateX(2px); // 마우스 올렸을 때 약간 오른쪽으로 이동
   }
 `;
+
 /* Tag */
 
 const SubTitle = styled.h3`
@@ -154,6 +156,22 @@ function Home() {
 
   const navigate = useNavigate();
 
+  const variableMenu = () => {
+    if (isLoggedIn()) {
+      return (
+        <>
+          <MenuItem>Settings</MenuItem>
+          <MenuItem onClick={() => {navigate("/writing")}}>Writing</MenuItem>
+          <MenuItem onClick={() => {LogOut(); navigate('/')}}>Log Out</MenuItem>
+        </>
+      );
+    }
+
+    else {
+      return <MenuItem onClick={() => {navigate('/login')}}>Log In</MenuItem>
+    }
+  }
+
   return <BG>
     <Head>
       <BlogName>Taehyeon's Blog</BlogName>
@@ -168,7 +186,7 @@ function Home() {
           <SubTitle>Menu</SubTitle>
           <MenuList>
             <MenuItem>About Me</MenuItem>
-            <MenuItem onClick={() => navigate('/Login')}>Log in</MenuItem>
+            {variableMenu()}
           </MenuList>
       </Menu>
 
