@@ -8,7 +8,7 @@ const router = express.Router();
 
 const ADMIN = {
     username: "admin",
-    passwordHash: "$2b$10$yVmLQJaKilq6qp/Mi4jjlOpv2ssVuqMnXnTtG1hwUn1JJTij9o1IO"
+    passwordHash: process.env.passwordHash
 };
 
 router.post("/login", async (request, response) => {
@@ -44,4 +44,5 @@ router.post("/login", async (request, response) => {
     response.json({ accessToken, refreshToken});
 });
 
+// router라는 모듈로 export 하겠다는 거
 module.exports = router;

@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Contents from "./Contents";
-import Tags from  "./Tags";
-import Search from "./Search";
-import { isLoggedIn, LogOut } from './Login';
+import Tags from  "../public/Tags";
+import Search from "../public/Search";
+import { isLoggedIn, LogOut } from '../login/Login';
 
 /* APP.tsx는 전체 레이아웃을 관리하는 컴포넌트*/
 
@@ -29,6 +29,7 @@ export const Head = styled.div`
 export const BlogName = styled.h1`
   display: inline-block;
   font-size: 25px;
+  letter-spacing: 0.5px;  
   margin:auto;
 `;
 
@@ -178,7 +179,8 @@ function Home() {
     </Head>
 
     <Search searchedTerm = {serachedTerm}
-            onSearchedTerm = {setSearchedTerm} />
+            onSearchedTerm = {setSearchedTerm}
+            styleFor={process.env.REACT_APP_STYLE_HOME_SEARCH}/>
 
     <Body>
       <SideBar>

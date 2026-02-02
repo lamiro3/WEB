@@ -4,9 +4,11 @@ import axios from "axios";
 const instance = axios.create({
     baseURL: process.env.REACT_APP_API_URL,
     headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json", // 모든 형식이 JSON 형식임을 명시
     },
 });
+
+console.log("Current API URL:", process.env.REACT_APP_API_URL);
 
 // 요청 인터셉터 설정
 instance.interceptors.request.use((config) => {
@@ -18,18 +20,18 @@ instance.interceptors.request.use((config) => {
     return config;
 });
 
-// 새로고침 여부
+// 현재 토큰 새로고침 여부
 let isRefresh = false;
-// auth 실패 후 대기 중인 요청들
+// 토큰이 만료되었을 때, 새 토큰이 나올 때까지 잠시 대기시키는 요청들의 리스트
 let failedQueue: any[] = [];
 
 // 에러 발생했다면 거부, 아니면 토큰 재발급
 const processQueue = (error: any, token: string | null = null) => {
     failedQueue.forEach((p) => {
         if (error)
-            p.reject(error);
+            p.reject(error); // 말 그대로 작업 실패
         else
-            p.resolve(token);
+            p.resolve(token); // 재발급 성공 시 대기 중 요청들 한번에 실행
     })
 }
 
@@ -38,7 +40,7 @@ instance.interceptors.response.use((response) => response,
     async (error) => {
         const originalRequest = error.config; // 에러 발생한 친구
         if (error.response?.status === 401 && !originalRequest._retry) {
-            if (isRefresh) {
+            if (isRefresh) { // 이미 다른 요청이 토큰을 갱신 중일 때 현재 요청은 failedQueue에 넣고 대기
                 return new Promise((resolve, reject) => {
                     failedQueue.push({resolve, reject});
                 }).then((token) => {
@@ -52,7 +54,7 @@ instance.interceptors.response.use((response) => response,
 
             try {
                 const refreshToken = localStorage.getItem("refreshToken");
-                const result = await axios.post("https://localhost:3000/auth/refresh", {refreshToken});
+                const result = await instance.post("/auth/refresh", {refreshToken});
 
                 const newAccessToken = result.data.accessToken;
                 localStorage.setItem("accessToken", newAccessToken);
@@ -70,7 +72,6 @@ instance.interceptors.response.use((response) => response,
                 isRefresh = false;
             }
         }
-
         return Promise.reject(error);
     })
 

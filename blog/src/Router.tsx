@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate} from "react-router-dom";
-import Home from "./Home";
-import Login, { isLoggedIn } from "./Login";
-import Writing from "./Writing";
+import Home from "./home/Home";
+import Login, { isLoggedIn } from "./login/Login";
+import Writing from "./writing/Writing";
 
 const Router = () => {
     return (

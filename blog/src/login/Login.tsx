@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { login } from "./api/auth";
+import { login } from "../api/auth";
 import { useNavigate } from "react-router-dom";
 
 /* Login.tsx는 로그인 폼을 보여주는 컴포넌트 */

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";    
 import styled, {keyframes} from "styled-components";
-import { Tag } from "./Tags";
+import { Tag } from "../public/Tags";
 
 /* Contents.tsx는 포스트 목록(태그 및 검색 기반 필터링)을 보여주는 컴포넌트 */
 
