@@ -8,6 +8,11 @@ import { isLoggedIn, LogOut } from '../login/Login';
 
 /* APP.tsx는 전체 레이아웃을 관리하는 컴포넌트*/
 
+interface Tag{
+  id: number,
+  name: string
+}
+
 const BG = styled.div`
   background-color: #94a3b8;
 `;
@@ -152,7 +157,7 @@ const ContentList = styled.div`
 
 function Home() {
   // Tags ~ 선택한 태그들 : selectedTags
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
   const [serachedTerm, setSearchedTerm] = useState<string>("");
 
   const navigate = useNavigate();

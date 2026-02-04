@@ -3,9 +3,12 @@ import styled from "styled-components";
 import TagSearch from "./TagSearch";
 import { Tag } from "../public/Tags";
 import Search from "../public/Search";
+import { newContent } from "../api/contents";
+import getDate from "../public/getDate";
+import { useNavigate } from "react-router-dom";
 
 interface Tag {
-    id: number;
+    tag_id: number;
     name: string;
 }
 
@@ -33,9 +36,11 @@ const BlogName = styled.h1`
 `;
 
 const Body = styled.div`
+    overflow-y: auto;
+
     margin-top: 3.3rem;
-    min-height: calc(100vh - 2rem);
-    width: 100vw;
+    height: calc(100vh - 2rem);
+    min-width: 80vw;
 
 
     background-color: #94a3b8;
@@ -70,6 +75,11 @@ color: #334155;
 /* tags */
 
 const TagsContainer = styled(Card)`
+        & > span {
+        display: flex;
+        align-items: center;
+        gap: 8.5rem;
+    }
 `;
 
 const SectionTitle = styled.h2`
@@ -88,11 +98,45 @@ const TagList = styled.div`
 /* post */
 
 const PostContainer = styled(Card)`
-    
+    & > span {
+        display: flex;
+    }
+
+    margin-bottom: 5rem;
+    padding-bottom: 4rem;
 `;
 
+const PostInput = styled.textarea.attrs({placeholder: "내용을 입력하세요..."})`
+    width: 60rem;
+    min-height: 40rem;
+    margin: 3rem 4rem;
+    padding: 1rem;
+    
+    font-size: 15px;
+
+    border: 0.1rem solid black;
+    border-radius: 10px;
+`;
+
+const Btn = styled.button`
+    width: 5rem;
+    height: 2.5rem;
+    border: 0.1rem solid black;
+    border-radius: 0.5rem;
+
+    float: right;
+
+    background-color: #0044ff;
+    color: white;
+
+    &:hover {
+        background-color: #376cff;
+    }
+`;
 
 function Writing() {
+    const navigate  = useNavigate();
+
     const [title, setTitle] = useState("");
     const [post, setPost] = useState("");
 
@@ -113,7 +157,7 @@ function Writing() {
         tag =>
             tag.name.toUpperCase()
             .includes(searchedTag.toUpperCase()) &&
-            !selectedTags.some(t => t.id === tag.id)
+            !selectedTags.some(t => t.tag_id === tag.tag_id)
         )
     : [];
 
@@ -123,21 +167,41 @@ function Writing() {
         tag =>
             !tag.name.toUpperCase()
             .includes(searchedTag.toUpperCase()) &&
-            !selectedTags.some(t => t.id === tag.id)
+            !selectedTags.some(t => t.tag_id === tag.tag_id)
         )
     : tags.filter(
-        tag => !selectedTags.some(t => t.id === tag.id)
+        tag => !selectedTags.some(t => t.tag_id === tag.tag_id)
         );
-
+    
+    // 태그 선택 toggle event
     const select = (tag: Tag) => {
     setSelectedTags(prev =>
-        prev.some(t => t.id === tag.id) 
-        ? prev.filter(t => t.id !== tag.id) // 이미 선택한 태그라면 제외
+        prev.some(t => t.tag_id === tag.tag_id) 
+        ? prev.filter(t => t.tag_id !== tag.tag_id) // 이미 선택한 태그라면 제외
         : [...prev, tag] // 선택하지 않았다면 포함
     );};
 
+    // 태그 선택 확인 여부
     const isSelected = (tag: Tag) =>
-        selectedTags.some(t => t.id === tag.id);
+        selectedTags.some(t => t.tag_id === tag.tag_id);
+
+    // 콘텐츠 제출 시 event (서버로 전달)
+    const submitContent = async () => {
+        const { year, month, day } = getDate();
+        console.log(month);
+        try {
+            const data = await newContent(
+            Date.now(), title === "" ? "제목 없음" : title , post, post.substring(0, 30),
+            `${year}-${month}-${day}`, selectedTags);
+
+            localStorage.setItem('content', JSON.stringify(data));
+            navigate("/");
+
+        } catch (error) {
+            alert("ERROR!");
+            console.log(error);
+        }
+    }
 
     return (<>
         <Head>
@@ -156,15 +220,18 @@ function Writing() {
             </Card>
 
             <TagsContainer>
-                <TagSearch searchedTerm={searchedTag}
-                        onSearchedTerm={setSearchedTag}
-                        tags={tags}
-                />
+                <span>
+                    <SectionTitle>Tags</SectionTitle>
+                    <TagSearch searchedTerm={searchedTag}
+                            onSearchedTerm={setSearchedTag}
+                            tags={tags}
+                    />
+                </span>
 
                 <SectionTitle>Selected</SectionTitle>
                 <TagList>
                     {selectedTags.map(tag => (
-                        <Tag key={tag.id}
+                        <Tag key={tag.tag_id}
                             onClick={() => select(tag)}
                             $selected>{tag.name}</Tag>
                     ))}
@@ -173,7 +240,7 @@ function Writing() {
                 <SectionTitle>Searched</SectionTitle>
                 <TagList>
                     {searchedTags.map(tag => (
-                        <Tag key={tag.id}
+                        <Tag key={tag.tag_id}
                             onClick={() => select(tag)}
                             $selected={isSelected(tag)}
                             $searched>{tag.name}</Tag>
@@ -183,7 +250,7 @@ function Writing() {
                 <SectionTitle>Others</SectionTitle>
                 <TagList>
                     {unsearchedTags.map(tag => (
-                        <Tag key={tag.id}
+                        <Tag key={tag.tag_id}
                             onClick={() => select(tag)}
                             $selected={isSelected(tag)}>{tag.name}</Tag>
                     ))}
@@ -191,7 +258,11 @@ function Writing() {
             </TagsContainer>
 
             <PostContainer>
-                
+                <span>
+                    <Subtitle>Post</Subtitle>
+                    <PostInput onChange={((e) => setPost(e.target.value))}/>
+                </span>
+                <Btn type="button" onClick={submitContent}>Submit</Btn>
             </PostContainer>
         </Body>
     </>

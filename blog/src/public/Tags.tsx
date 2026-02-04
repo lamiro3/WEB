@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 
 /* Tags.tsx는 태그 목록을 보여주고 태그 필터링을 하는 컴포넌트 */
-interface Tag {
+interface _Tag {
     id: number,
     name: string;
 }
 interface TagsProps {
-  selectedTags: string[];
-  onSelectedTags: React.Dispatch<React.SetStateAction<string[]>>;
+  selectedTags: _Tag[];
+  onSelectedTags: React.Dispatch<React.SetStateAction<_Tag[]>>;
   // Hooks event 발생 시 state update에 활용되는 함수 유형 => React.Dispatch
   // ?: Optional을 의미함
 }
@@ -62,7 +62,7 @@ export const Tag = styled.div<{$selected?: boolean, $searched?: boolean}>`
 `;
 
 function Tags({ selectedTags, onSelectedTags } : TagsProps){
-    const [tags, setTags] = useState<Tag[]>([]);
+    const [tags, setTags] = useState<_Tag[]>([]);
 
     useEffect(() => {
         fetch("data/tags.json")
@@ -71,20 +71,28 @@ function Tags({ selectedTags, onSelectedTags } : TagsProps){
         .catch(err => console.error(err));
     }, []);
 
-    const selectedTag = (tagName:string) => {
+    const isThere = (tags:_Tag[], tgt:string):boolean => {
+      for (let idx=0; idx<tags.length; idx++){
+        if (tags[idx].name == tgt)
+          return true;
+      }
+      return false;
+    }
+
+    const selectedTag = (tgt:_Tag) => {
       // 선택한 tag 목록에 현 tag가 포함되어 있다면 
-      onSelectedTags(stags => 
-        stags.includes(tagName)
-        ? stags.filter(t => t !== tagName) // true: 목록에서 해당 tag 삭제 <toggle event 구현하기 위해>
-        : [...stags, tagName]); // false: 목록에 해당 tag 추가
+      onSelectedTags(tags => 
+        isThere(tags, tgt.name)
+        ? tags.filter(t => t.name !== tgt.name) // true: 목록에서 해당 tag 삭제 <toggle event 구현하기 위해>
+        : [...tags, tgt]); // false: 목록에 해당 tag 추가
     }
 
     return (
     <>
       {tags.map(tag => (
         <Tag key={tag.id}
-            onClick={() => selectedTag(tag.name)}
-            $selected={selectedTags.includes(tag.name)}>
+            onClick={() => selectedTag(tag)}
+            $selected={selectedTags.includes(tag)}>
           {tag.name}
         </Tag>
       ))}

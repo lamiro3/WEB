@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react";    
-import styled, {keyframes} from "styled-components";
+import styled from "styled-components";
 import { Tag } from "../public/Tags";
 
 /* Contents.tsx는 포스트 목록(태그 및 검색 기반 필터링)을 보여주는 컴포넌트 */
-
-interface Post {
+interface Tag {
   id: number,
+  name: string
+}
+interface Content {
+  content_id: number,
   title: string,
+  post: string,
   summary: string,
   createdAt: string,
-  tags: string[];
+  tags: Tag[];
 }
 
 interface ContentsProps {
-  selectedTags: string[];
+  selectedTags: Tag[];
   searchedTerm: string;
 }
 
@@ -115,7 +119,7 @@ const Matched = styled.span`
 `;
 
 function Contents({selectedTags, searchedTerm}: ContentsProps){
-    const [contents, setContents] = useState<Post[]>([]);
+    const [contents, setContents] = useState<Content[]>([]);
 
     useEffect(() => {
       fetch("/data/contents.json")
@@ -125,28 +129,28 @@ function Contents({selectedTags, searchedTerm}: ContentsProps){
     }, []); // 대괄호 없으면 렌더링할 때마다 content 무한 복붙됨
 
     // 선택한 tag들만 골라내기(필터링)
-    const filteredContents = selectedTags
-    ? contents.filter(post => selectedTags.every(tag => post.tags.includes(tag))) : contents;
+    const filteredContents = selectedTags.length > 0
+    ? contents.filter(content => selectedTags.every(seltag => content.tags.some(tag => tag.id === seltag.id))) : contents;
 
     // 검색어 필터링(앞서 선택한 tag들 필터링된 결과에서 다시 검색어로 필터링) + <추후에 contents에 "내용"도 추가할 예정이지만> 임시방편으로 title과 summary에서만 검색
     const searchedContents = searchedTerm
-    ? filteredContents.filter(post => post.title.includes(searchedTerm) || post.summary.includes(searchedTerm))
+    ? filteredContents.filter(content => content.title.includes(searchedTerm) || content.summary.includes(searchedTerm))
     : filteredContents;
 
     return (<>
     {
       searchedContents.length === 0 ?
       <NotFound>Not Found</NotFound>
-      : searchedContents.map(post => (
-        <Body key={post.id}>
+      : searchedContents.map(content => (
+        <Body key={content.content_id}>
           
-          <Title>{"> "}{highlightText(post.title, searchedTerm)}</Title>
-          <Summary>{highlightText(post.summary, searchedTerm)}{"..."}</Summary>
-          <Date>{post.createdAt}</Date>
+          <Title>{"> "}{highlightText(content.title, searchedTerm)}</Title>
+          <Summary>{highlightText(content.summary, searchedTerm)}{"..."}</Summary>
+          <Date>{content.createdAt}</Date>
           
           <TagContainer>
-            {post.tags.map(tag => (
-              <Tag key={tag} $selected={selectedTags.includes(tag)}>{tag}</Tag>
+            {content.tags.map(tag => (
+              <Tag key={tag.id} $selected={selectedTags.some(t => t.id === tag.id)}>{tag.name}</Tag>
             ))}
           </TagContainer>
         </Body>
