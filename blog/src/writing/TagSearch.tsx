@@ -1,10 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { newTag } from "../api/tag";
 
 /* Search.tsx는 검색창을 보여주고 검색어를 입력받는 컴포넌트 */
+
+const BtnHoverAnimation = (before: string, after: string) => keyframes`
+  0% {
+    background-color: ${before};
+  }  
+
+  100% {
+    background-color: ${after};
+  }
+`;
+
 interface Tag {
-    tag_id: number;
+    id: number;
     name: string;
 }
 interface SearchProps {
@@ -34,16 +45,21 @@ const Btn = styled.button`
     width: 4rem;
     height: 2rem;
 
-    margin-left: 3rem;
     padding: 2rem auto;
+    margin-left: 3rem;
 
-    border-radius: 10px;
+    border-radius: 0.5rem;
 
     color: white;
-    background-color: #ff3838;
 
     &:hover {
+        animation: ${BtnHoverAnimation("#ff3838", "#ff5e5e")} 0.3s;
         background-color: #ff5e5e;
+    }
+
+    &:not(:hover) {
+        animation: ${BtnHoverAnimation("#ff5e5e", "#ff3838")} 0.3s;
+        background-color: #ff3838;
     }
 `;
 

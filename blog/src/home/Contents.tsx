@@ -3,21 +3,21 @@ import styled from "styled-components";
 import { Tag } from "../public/Tags";
 
 /* Contents.tsx는 포스트 목록(태그 및 검색 기반 필터링)을 보여주는 컴포넌트 */
-interface Tag {
+interface TagIF {
   id: number,
   name: string
 }
-interface Content {
+interface ContentIF {
   content_id: number,
   title: string,
   post: string,
   summary: string,
   createdAt: string,
-  tags: Tag[];
+  tags: TagIF[];
 }
 
 interface ContentsProps {
-  selectedTags: Tag[];
+  selectedTags: TagIF[];
   searchedTerm: string;
 }
 
@@ -119,7 +119,7 @@ const Matched = styled.span`
 `;
 
 function Contents({selectedTags, searchedTerm}: ContentsProps){
-    const [contents, setContents] = useState<Content[]>([]);
+    const [contents, setContents] = useState<ContentIF[]>([]);
 
     useEffect(() => {
       fetch("/data/contents.json")
@@ -130,7 +130,7 @@ function Contents({selectedTags, searchedTerm}: ContentsProps){
 
     // 선택한 tag들만 골라내기(필터링)
     const filteredContents = selectedTags.length > 0
-    ? contents.filter(content => selectedTags.every(seltag => content.tags.some(tag => tag.id === seltag.id))) : contents;
+    ? contents.filter(content => selectedTags.every(seltag => content.tags.some(tag => tag.name === seltag.name))) : contents;
 
     // 검색어 필터링(앞서 선택한 tag들 필터링된 결과에서 다시 검색어로 필터링) + <추후에 contents에 "내용"도 추가할 예정이지만> 임시방편으로 title과 summary에서만 검색
     const searchedContents = searchedTerm
@@ -150,7 +150,7 @@ function Contents({selectedTags, searchedTerm}: ContentsProps){
           
           <TagContainer>
             {content.tags.map(tag => (
-              <Tag key={tag.id} $selected={selectedTags.some(t => t.id === tag.id)}>{tag.name}</Tag>
+              <Tag key={tag.id} $selected={selectedTags.some(t => t.name === tag.name)}>{tag.name}</Tag>
             ))}
           </TagContainer>
         </Body>

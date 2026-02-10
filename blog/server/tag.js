@@ -11,13 +11,13 @@ router.post("/tags", async (req, res) => {
     let {year, month, day} = getDate();
     console.log(`New tag emerge [${year}-${month}-${day}]: ${req.body?.name}`);
 
-    const {tag_id, name} = req.body;
+    const {id, name} = req.body;
 
     try {
         const prev = fs.readFileSync(TAG_PATH, "utf-8");
         const tags = JSON.parse(prev); // string -> JSON obj
 
-        const newTag = {tag_id, name};
+        const newTag = {id, name};
         tags.push(newTag);
 
         fs.writeFileSync(TAG_PATH, JSON.stringify(tags, null, 2), "utf-8");

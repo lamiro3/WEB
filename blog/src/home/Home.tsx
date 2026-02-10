@@ -185,7 +185,8 @@ function Home() {
 
     <Search searchedTerm = {serachedTerm}
             onSearchedTerm = {setSearchedTerm}
-            styleFor={process.env.REACT_APP_STYLE_HOME_SEARCH}/>
+            styleFor={process.env.REACT_APP_STYLE_HOME_SEARCH}
+            placeholder="Search"/>
 
     <Body>
       <SideBar>

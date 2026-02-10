@@ -7,6 +7,7 @@ interface SearchProps {
     searchedTerm: string;
     onSearchedTerm: React.Dispatch<React.SetStateAction<string>>;
     styleFor: string;
+    placeholder: string;
 }
 
 const Body = styled.div<{$styleFor: string}>`
@@ -44,14 +45,15 @@ const Body = styled.div<{$styleFor: string}>`
     }}
 `;
 
-const SearchBox = styled.input.attrs({required: true, placeholder: "Search"})`
+const SearchBox = styled.input.attrs({required: true})`
   width: 50rem;
   height: 2rem;
   margin: 0 auto;
+  padding-left: 0.5rem;
   border-radius: 10px;
 `;
 
-function Search({searchedTerm, onSearchedTerm, styleFor}: SearchProps) {
+function Search({searchedTerm, onSearchedTerm, styleFor, placeholder}: SearchProps) {
     const [searchTerm, setSearchTerm] = useState("");
 
     const onChange = (e:React.ChangeEvent<HTMLInputElement>) => {
@@ -63,7 +65,7 @@ function Search({searchedTerm, onSearchedTerm, styleFor}: SearchProps) {
     }, [searchTerm])
 
     return <Body $styleFor={styleFor}>
-        <SearchBox onChange={onChange}/>
+        <SearchBox onChange={onChange} placeholder={placeholder}/>
     </Body>;
 }
 
