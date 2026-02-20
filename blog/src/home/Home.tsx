@@ -149,6 +149,7 @@ const TagContainer = styled.div`
 
 const ContentList = styled.div`
   margin-left: 15%;
+  margin-top: 2.5rem;
   width: 85%;
   height: calc(100vh - 70px);
   padding: 0 2rem;

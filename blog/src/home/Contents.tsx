@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";    
 import styled from "styled-components";
 import { Tag } from "../public/Tags";
+import { useNavigate } from "react-router-dom";
 
 /* Contents.tsx는 포스트 목록(태그 및 검색 기반 필터링)을 보여주는 컴포넌트 */
 interface TagIF {
@@ -8,7 +9,7 @@ interface TagIF {
   name: string
 }
 interface ContentIF {
-  content_id: number,
+  id: number,
   title: string,
   post: string,
   summary: string,
@@ -121,6 +122,8 @@ const Matched = styled.span`
 function Contents({selectedTags, searchedTerm}: ContentsProps){
     const [contents, setContents] = useState<ContentIF[]>([]);
 
+    const navigate = useNavigate();
+
     useEffect(() => {
       fetch("/data/contents.json")
       .then(res => res.json()) 
@@ -142,7 +145,7 @@ function Contents({selectedTags, searchedTerm}: ContentsProps){
       searchedContents.length === 0 ?
       <NotFound>Not Found</NotFound>
       : searchedContents.map(content => (
-        <Body key={content.content_id}>
+        <Body key={content.id} onClick={() => { navigate(`/content/${content.id}`); }}>
           
           <Title>{"> "}{highlightText(content.title, searchedTerm)}</Title>
           <Summary>{highlightText(content.summary, searchedTerm)}{"..."}</Summary>

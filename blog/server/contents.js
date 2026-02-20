@@ -30,7 +30,7 @@ const upload = multer({storage: storage});
 // 반드시 post 주소는 개별로! ( 그래야 submit event 서로 안겹침 )
 router.post("/contents", upload.array("images"), async (req, res) => {
     let {year, month, day} = getDate();
-    const imagePaths = req.files.map(file => `/img/${file.filename}`)
+    const imagePaths = req.files.map(file => `/img/${file.filename}`);
 
     console.log(`New Content emerge [${year}-${month}-${day}]: ${req.body?.title}`);
 
@@ -39,16 +39,29 @@ router.post("/contents", upload.array("images"), async (req, res) => {
         post, 
         summary, 
         createdAt, 
-        tags} = req.body;
+        tags,
+        blobUrls} = req.body;
 
         try {
             const prev = fs.readFileSync(CONTENTS_PATH, "utf-8");
             const contents = JSON.parse(prev);
 
+            let finalPost = post;
+            
+            const urls = typeof blobUrls === 'string' ? JSON.parse(blobUrls) : blobUrls;
+
+            // POST 내 img blobUrl를 모두 서버 내 실제 주소로 갱신
+            if (urls && Array.isArray(urls)) {
+                urls.forEach((blobUrl, idx) => {
+                    const realPath = imagePaths[idx];
+                    finalPost = finalPost.replace(blobUrl, realPath);
+                });
+            }
+
             const newContent = {
                 id: Number(id),
                 title, 
-                post, 
+                post: finalPost, 
                 summary, 
                 createdAt, 
                 tags: typeof tags === 'string' ? JSON.parse(tags) : tags,

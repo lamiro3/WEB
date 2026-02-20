@@ -236,7 +236,7 @@ function Writing() {
     // 업로드한 사진 클릭 시 post에 사진 삽입
     const insertImageToPost = (path: string, index: number) => {
         // post에 ![img0] 꼴로 삽입
-        setPost(prev => prev + `\n![image${index}](${`/img/${path}`})\n`);
+        setPost(prev => prev + `\n\n![image${index}](${path})\n\n`);
     }
 
     // 콘텐츠 제출 시 event (서버로 전달)
@@ -328,7 +328,9 @@ function Writing() {
                     <PostInput value={post} onChange={((e) => setPost(e.target.value))}/>
                     <Subtitle>Preview</Subtitle>
                     <PreviewContainer>
-                        <ReactMakdown>{post}</ReactMakdown>
+                        <ReactMakdown urlTransform={(uri) => uri}>
+                            {post}
+                        </ReactMakdown>
                     </PreviewContainer>
                 </EditorContainer>
                 <Btn type="button" onClick={submitContent}>Submit</Btn>

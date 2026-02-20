@@ -38,6 +38,10 @@ export const newContent = async(
         formData.append("summary", summary);
         formData.append("createdAt", createdAt);
         formData.append("tags", JSON.stringify(tags));
+
+        // POST 내 img 서버 주소 갱신을 위한 blobURL append
+        const blobUrls = images.map(img => img.preview);
+        formData.append("blobUrls", JSON.stringify(blobUrls));
         
         images.forEach((imgObj) => {
             formData.append("images", imgObj.file);

@@ -137,6 +137,7 @@ function ImgUploader({images, onImages, onImageClick}:ImgProps){
     const deleteImages = (id:number) => {
         onImages(images.filter((_, idx) => idx !== id));
     }
+    
     return (<>
         <Uploader id="imageUpload" multiple onChange={addImages}/>
         <UploadBtn htmlFor="imageUpload">+</UploadBtn>
